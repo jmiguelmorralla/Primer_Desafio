@@ -3,8 +3,8 @@ class ProductManager {
     create(data){
         const product = {
             id: ProductManager.#products.length === 0 ? 1 : ProductManager.#products[ProductManager.#products.length - 1].id+1,
-            photo: data.photo,
             title: data.title,
+            photo: data.photo,
             category: data.category,
             price: data.price,
             stock: data.stock

@@ -3,7 +3,7 @@ class UserManager {
     create(data){
         const user = {
             id: UserManager.#users.length === 0 ? 1 : UserManager.#users[UserManager.#users.length - 1].id+1,
-            foto: data.foto,
+            photo: data.photo,
             email: data.email,
             password: data.password,
             role: 0
@@ -18,13 +18,13 @@ read(){
 
 const gestorDeUsuarios = new UserManager()
 gestorDeUsuarios.create({
-    foto: "foto.jpg",
+    photo: "foto.jpg",
     email: "juan@gmail.com",
     password: "holapepito@",
 })
 
 gestorDeUsuarios.create({
-    foto: "fotoperfil.jpg",
+    photo: "fotoperfil.jpg",
     email: "cecilia@gmail.com",
     password: "Cecilia123",
 })
