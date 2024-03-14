@@ -37,4 +37,18 @@ gestorDeUsuarios.create({
   role: "user",
 });
 
+gestorDeUsuarios.create({
+  photo: "foto7.jpg",
+  email: "carlos_m@gmail.com",
+  password: "charly123",
+  role: "user",
+});
+
+gestorDeUsuarios.create({
+  photo: "fotofrente.jpg",
+  email: "donvictor@gmail.com",
+  password: "vicky_@2",
+  role: "admin",
+});
+
 console.log(gestorDeUsuarios.read());

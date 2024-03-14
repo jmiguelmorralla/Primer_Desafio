@@ -66,4 +66,44 @@ gestorDeProductos.create({
   stock: 36,
 });
 
+gestorDeProductos.create({
+  photo: "foto12.jpg",
+  title: "Pajarito",
+  category: "tela",
+  price: 6,
+  stock: 18,
+});
+
+gestorDeProductos.create({
+  photo: "foto1.jpg",
+  title: "Piramide",
+  category: "madera",
+  price: 9500,
+  stock: 21,
+});
+
+gestorDeProductos.create({
+  photo: "foto344.jpg",
+  title: "Auto",
+  category: "madera",
+  price: 9900,
+  stock: 12,
+});
+
+gestorDeProductos.create({
+  photo: "Titere.jpg",
+  title: "Titere",
+  category: "tela",
+  price: 4600,
+  stock: 36,
+});
+
+gestorDeProductos.create({
+  photo: "serpiente.jpg",
+  title: "Serpiente",
+  category: "tela",
+  price: 7000,
+  stock: 7,
+});
+
 console.log(gestorDeProductos.read());
