@@ -107,3 +107,5 @@ gestorDeProductos.create({
 });
 
 console.log(gestorDeProductos.read());
+
+//agregar readOne(id) y destroy(id)
