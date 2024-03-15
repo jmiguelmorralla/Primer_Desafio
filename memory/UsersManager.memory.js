@@ -1,24 +1,62 @@
+const crypto = require("crypto");
+
 class UserManager {
   static #users = [];
   create(data) {
     const user = {
-      id:
-        UserManager.#users.length === 0
-          ? 1
-          : UserManager.#users[UserManager.#users.length - 1].id + 1,
-      photo: data.photo,
+      id: crypto.randomBytes(12).toString("hex"),
+      photo: data.photo || "url",
       email: data.email,
       password: data.password,
       role: data.role,
     };
 
-    !data.photo || !data.email || !data.password || !data.role
-      ? console.log("Usuario no creado. Ingrese todos los datos.")
-      : UserManager.#users.push(user);
-    console.log("Usuario Creado");
+    if (!data.email || !data.password || !data.role) {
+      console.log("Usuario no creado. Ingrese todos los datos.");
+    } else {
+      UserManager.#users.push(user);
+      console.log("Usuario Creado");
+    }
   }
   read() {
-    return UserManager.#users;
+    try {
+      const users = UserManager.#users;
+      if (!users) {
+        throw new Error("NO EXISTEN USUARIOS");
+      } else {
+        return users;
+      }
+    } catch (error) {
+      console.log("no existen usuarios");
+    }
+
+  }
+
+  readOne(id) {
+    try {
+      const one = UserManager.#users.find((each) => each.id === id);
+      if (!one) {
+        throw new Error("NO EXISTE EL USUARIO");
+      } else {
+        return one;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  destroy(id) {
+    try {
+      const filtered = UserManager.#users.filter((each) => each.id !== id);
+      if (!filtered) {
+        throw new Error("NO EXISTEN USUARIOS)");
+      } else {
+        UserManager.#users = filtered;
+        console.log(id + "eliminado");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
@@ -52,6 +90,3 @@ gestorDeUsuarios.create({
 });
 
 console.log(gestorDeUsuarios.read());
-
-
-//agregar readOne(id) y destroy(id)
