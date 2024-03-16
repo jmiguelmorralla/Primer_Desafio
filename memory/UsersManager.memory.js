@@ -3,42 +3,47 @@ const crypto = require("crypto");
 class UserManager {
   static #users = [];
   create(data) {
-    const user = {
-      id: crypto.randomBytes(12).toString("hex"),
-      photo: data.photo || "url",
-      email: data.email,
-      password: data.password,
-      role: data.role,
-    };
+    try {
+      const user = {
+        id: crypto.randomBytes(12).toString("hex"),
+        photo:
+          data.photo ||
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+        email: data.email,
+        password: data.password,
+        role: data.role,
+      };
 
-    if (!data.email || !data.password || !data.role) {
-      console.log("Usuario no creado. Ingrese todos los datos.");
-    } else {
-      UserManager.#users.push(user);
-      console.log("Usuario Creado");
+      if (!data.email || !data.password || !data.role) {
+        console.log("Usuario no creado. Ingrese todos los datos requeridos.");
+      } else {
+        UserManager.#users.push(user);
+        console.log("Usuario Creado.");
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
   read() {
     try {
       const users = UserManager.#users;
       if (!users) {
-        throw new Error("NO EXISTEN USUARIOS");
+        throw new Error("ERROR EN LA LECTURA DEL ARRAY");
       } else {
         return users;
       }
     } catch (error) {
-      console.log("no existen usuarios");
+      console.log(error);
     }
-
   }
 
   readOne(id) {
     try {
-      const one = UserManager.#users.find((each) => each.id === id);
-      if (!one) {
-        throw new Error("NO EXISTE EL USUARIO");
+      const user = UserManager.#users.find((each) => each.id === id);
+      if (!user) {
+        throw new Error("NO EXISTE EL USUARIO.");
       } else {
-        return one;
+        return user;
       }
     } catch (error) {
       console.log(error);
@@ -48,11 +53,11 @@ class UserManager {
   destroy(id) {
     try {
       const filtered = UserManager.#users.filter((each) => each.id !== id);
-      if (!filtered) {
-        throw new Error("NO EXISTEN USUARIOS)");
+      if (!id) {
+        throw new Error("NO EXISTEN USUARIOS CON ESE ID");
       } else {
         UserManager.#users = filtered;
-        console.log(id + "eliminado");
+        console.log("USUARIO " + id + " ELIMINADO");
       }
     } catch (error) {
       console.log(error);
@@ -61,6 +66,7 @@ class UserManager {
 }
 
 const gestorDeUsuarios = new UserManager();
+
 gestorDeUsuarios.create({
   photo: "foto.jpg",
   email: "juan@gmail.com",
@@ -69,7 +75,6 @@ gestorDeUsuarios.create({
 });
 
 gestorDeUsuarios.create({
-  photo: "fotoperfil.jpg",
   email: "cecilia@gmail.com",
   password: "Cecilia123",
   role: "user",

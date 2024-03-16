@@ -11,89 +11,115 @@ class UserManager {
     if (!exists) {
       const stringData = JSON.stringify([], null, 2);
       fs.writeFileSync(this.path, stringData);
-      console.log("Archivo Creado");
+      console.log("ARCHIVO CREADO");
     } else {
-      console.log("Archivo ya existe");
+      console.log("ARCHIVO YA EXISTE");
     }
   }
 
   async create(data) {
-    // agregar try catch
-    const user = {
-      id: crypto.randomBytes(12).toString("hex"),
-      photo: data.photo || "url",
-      email: data.email,
-      password: data.password,
-      role: data.role,
-    };
+    try {
+      const user = {
+        id: crypto.randomBytes(12).toString("hex"),
+        photo:
+          data.photo ||
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+        email: data.email,
+        password: data.password,
+        role: data.role,
+      };
 
-    if (!data.email || !data.password || !data.role) {
-      console.log("Usuario no creado. Ingrese todos los datos.");
-    } else {
-      let users = await fs.promises.readFile(this.path, "utf-8");
-      users = JSON.parse(users);
-      users.push(user);
-      console.log("Usuario Creado");
-      users = JSON.stringify(users, null, 2);
-      await fs.promises.writeFile(this.path, users);
+      if (!data.email || !data.password || !data.role) {
+        console.log("USUARIO NO CREADO, INGRESE TODOS LOS DATOS REQUERIDOS.");
+      } else {
+        let users = await fs.promises.readFile(this.path, "utf-8");
+        users = JSON.parse(users);
+        users.push(user);
+        console.log("Usuario Creado");
+        users = JSON.stringify(users, null, 2);
+        await fs.promises.writeFile(this.path, users);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
   async read() {
-    let users = await fs.promises.readFile(this.path, "utf-8");
-    users = JSON.parse(users);
-    return users;
-    // agregar try catch y condicional en caso de no encontrar usuarios
+    try {
+      let users = await fs.promises.readFile(this.path, "utf-8");
+      users = JSON.parse(users);
+      if (!users) {
+        new Error("ERROR EN LA LECTURA DEL ARRAY");
+      } else {
+        return users;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async readOne(id) {
-    let users = await fs.promises.readFile(this.path, "utf-8");
-    users = JSON.parse(users);
-    return users.find((each) => each.id === id);
-    // agregar try catch y condicional en caso de no encontrar usuario
+    try {
+      let users = await fs.promises.readFile(this.path, "utf-8");
+      users = JSON.parse(users);
+      const user = users.find((each) => each.id === id);
+      if (!user) {
+        throw new Error("NO EXISTE EL USUARIO.");
+      }
+      return user;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async destroy(id) {
-    let users = await fs.promises.readFile(this.path, "utf-8");
-    users = JSON.parse(users);
-    const filtered = users.filter((each) => each.id !== id);
-    await fs.promises.writeFile(filtered);
-    console.log(id + "eliminado");
-    // agregar try catch y condicional en caso de no encontrar usuario
+    try {
+      let users = await fs.promises.readFile(this.path, "utf-8");
+      users = JSON.parse(users);
+      const filtered = users.filter((each) => each.id !== id);
+      if (!id) {
+        throw new Error("NO EXISTEN USUARIOS CON ESE ID");
+      }
+      else {
+        await fs.promises.writeFile(filtered);
+        console.log("USUARIO " + id + " ELIMINADO");
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
-async function test () {
-    const gestorDeUsuarios = new UserManager();
-    await gestorDeUsuarios.create({
-      photo: "foto.jpg",
-      email: "juan@gmail.com",
-      password: "holapepito@",
-      role: "admin",
-    });
-    
-    await gestorDeUsuarios.create({
-      photo: "fotoperfil.jpg",
-      email: "cecilia@gmail.com",
-      password: "Cecilia123",
-      role: "user",
-    });
-    
-    await gestorDeUsuarios.create({
-      photo: "foto7.jpg",
-      email: "carlos_m@gmail.com",
-      password: "charly123",
-      role: "user",
-    });
-    
-    await gestorDeUsuarios.create({
-      photo: "fotofrente.jpg",
-      email: "donvictor@gmail.com",
-      password: "vicky_@2",
-      role: "admin",
-    });
-    console.log(await gestorDeUsuarios.read())
-    console.log(await gestorDeUsuarios.readOne("f38ebd29531d97a6cf88a5a6"))
-    
+async function test() {
+  const gestorDeUsuarios = new UserManager();
+  await gestorDeUsuarios.create({
+    photo: "foto.jpg",
+    email: "juan@gmail.com",
+    password: "holapepito@",
+    role: "admin",
+  });
+
+  await gestorDeUsuarios.create({
+    email: "cecilia@gmail.com",
+    password: "Cecilia123",
+    role: "user",
+  });
+
+  await gestorDeUsuarios.create({
+    photo: "foto7.jpg",
+    email: "carlos_m@gmail.com",
+    password: "charly123",
+    role: "user",
+  });
+
+  await gestorDeUsuarios.create({
+    photo: "fotofrente.jpg",
+    email: "donvictor@gmail.com",
+    password: "vicky_@2",
+    role: "admin",
+  });
+  console.log(await gestorDeUsuarios.read());
 }
 
-test()
+test();
+

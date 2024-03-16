@@ -1,26 +1,70 @@
+const crypto = require("crypto");
+
 class ProductManager {
   static #products = [];
   create(data) {
-    const product = {
-      id:
-        ProductManager.#products.length === 0
-          ? 1
-          : ProductManager.#products[ProductManager.#products.length - 1].id +
-            1,
-      title: data.title,
-      photo: data.photo,
-      category: data.category,
-      price: data.price,
-      stock: data.stock,
-    };
+    try {
+      const product = {
+        id: crypto.randomBytes(12).toString("hex"),
+        title: data.title,
+        photo:
+          data.photo ||
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
+        category: data.category,
+        price: data.price,
+        stock: data.stock,
+      };
 
-    !data.stock || !data.title || !data.photo || !data.category || !data.price
-      ? console.log("Producto no creado. Ingrese todos los datos.")
-      : ProductManager.#products.push(product);
-    console.log("Producto Creado");
+      if (!data.stock || !data.title || !data.category || !data.price) {
+        console.log("Producto no creado. Ingrese todos los datos requeridos.");
+      } else {
+        ProductManager.#products.push(product);
+        console.log("Producto Creado");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   read() {
-    return ProductManager.#products;
+    try {
+      const products = ProductManager.#products;
+      if (!products) {
+        throw new Error("ERROR EN LA LECTURA DEL ARRAY");
+      } else {
+        return products;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  readOne(id) {
+    try {
+      const product = ProductManager.#products.find((each) => each.id === id);
+      if (!product) {
+        throw new Error("NO EXISTE EL PRODUCTO");
+      } else {
+        return product;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  destroy(id) {
+    try {
+      const filtered = ProductManager.#products.filter(
+        (each) => each.id !== id
+      );
+      if (!id) {
+        throw new Error("NO EXISTE USUARIO CON ESE ID");
+      } else {
+        ProductManager.#products = filtered;
+        console.log("USUARIO" + id + " ELIMINADO");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
@@ -43,7 +87,6 @@ gestorDeProductos.create({
 });
 
 gestorDeProductos.create({
-  photo: "foto3.jpg",
   title: "Casita",
   category: "madera",
   price: 6500,
@@ -67,7 +110,6 @@ gestorDeProductos.create({
 });
 
 gestorDeProductos.create({
-  photo: "foto12.jpg",
   title: "Pajarito",
   category: "tela",
   price: 6,
@@ -107,5 +149,3 @@ gestorDeProductos.create({
 });
 
 console.log(gestorDeProductos.read());
-
-//agregar readOne(id) y destroy(id)
