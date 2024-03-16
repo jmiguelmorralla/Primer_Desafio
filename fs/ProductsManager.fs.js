@@ -79,14 +79,12 @@ class ProductManager {
       const filtered = products.filter((each) => each.id !== id);
       if (!id) {
         throw new Error("NO EXISTEN PRODUCTOS CON ESE ID");
-      }
-      else {
+      } else {
         await fs.promises.writeFile(filtered);
         console.log("PRODUCTO " + id + " ELIMINADO");
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
@@ -176,4 +174,3 @@ async function test() {
 }
 
 test();
-

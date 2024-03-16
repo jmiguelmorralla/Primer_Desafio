@@ -78,14 +78,12 @@ class UserManager {
       const filtered = users.filter((each) => each.id !== id);
       if (!id) {
         throw new Error("NO EXISTEN USUARIOS CON ESE ID");
-      }
-      else {
+      } else {
         await fs.promises.writeFile(filtered);
         console.log("USUARIO " + id + " ELIMINADO");
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
@@ -122,4 +120,3 @@ async function test() {
 }
 
 test();
-
