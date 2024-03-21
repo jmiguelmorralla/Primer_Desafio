@@ -61,11 +61,14 @@ class UserManager {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      const user = users.find((each) => each.id === id);
+      let user = users.find((each) => each.id === id);
+      console.log(user)
       if (!user) {
         throw new Error("NO EXISTE EL USUARIO.");
-      }
-      return user;
+      } else {
+        console.log(user)
+      return user};
+
     } catch (error) {
       console.log(error);
     }
@@ -75,11 +78,13 @@ class UserManager {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      const filtered = users.filter((each) => each.id !== id);
-      if (!id) {
+      let user = users.find((each) => each.id === id)
+      if (!user) {
         throw new Error("NO EXISTEN USUARIOS CON ESE ID");
       } else {
-        await fs.promises.writeFile(filtered);
+        let filtered = users.filter((each) => each.id !== id);
+        filtered = JSON.stringify(filtered, null, 2)
+        await fs.promises.writeFile(this.path, filtered);
         console.log("USUARIO " + id + " ELIMINADO");
       }
     } catch (error) {
@@ -88,7 +93,7 @@ class UserManager {
   }
 }
 
-async function test() {
+async function testCreate() {
   const gestorDeUsuarios = new UserManager();
   await gestorDeUsuarios.create({
     photo: "foto.jpg",
@@ -119,4 +124,28 @@ async function test() {
   console.log(await gestorDeUsuarios.read());
 }
 
-test();
+
+async function testRead() {
+  const gestorDeUsuarios = new UserManager();
+  await gestorDeUsuarios.read()
+  console.log(await gestorDeUsuarios.read())
+}
+
+async function testReadOne() {
+  const gestorDeUsuarios = new UserManager();
+  await gestorDeUsuarios.readOne("0799b9ef85aac950d128ca3b")
+  console.log(await gestorDeUsuarios.readOne())
+}
+
+async function testDestroy() {
+  const gestorDeUsuarios = new UserManager();
+  await gestorDeUsuarios.destroy("af10527386783c2c9a958a05")
+  console.log(await gestorDeUsuarios.readOne())
+}
+
+// testCreate()
+// testRead()
+// testReadOne()
+testDestroy()
+
+
