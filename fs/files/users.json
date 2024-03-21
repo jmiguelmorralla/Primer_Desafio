@@ -1,0 +1,16 @@
+[
+  {
+    "id": "d49b9f62067409f47010dc1d",
+    "photo": "foto.jpg",
+    "email": "juan@gmail.com",
+    "password": "holapepito@",
+    "role": "admin"
+  },
+  {
+    "id": "f67970416bcef25ba0d54fc1",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+    "email": "cecilia@gmail.com",
+    "password": "Cecilia123",
+    "role": "user"
+  }
+]
