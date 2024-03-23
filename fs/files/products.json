@@ -54,13 +54,5 @@
     "category": "madera",
     "price": 9500,
     "stock": 21
-  },
-  {
-    "id": "83ebb90f2899376590bb33fa",
-    "title": "Auto",
-    "photo": "foto344.jpg",
-    "category": "madera",
-    "price": 9900,
-    "stock": 12
   }
 ]

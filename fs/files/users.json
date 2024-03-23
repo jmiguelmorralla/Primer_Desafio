@@ -26,5 +26,33 @@
     "email": "donvictor@gmail.com",
     "password": "vicky_@2",
     "role": "admin"
+  },
+  {
+    "id": "5243421e0cb28805f2dd4faa",
+    "photo": "foto.jpg",
+    "email": "juan@gmail.com",
+    "password": "holapepito@",
+    "role": "admin"
+  },
+  {
+    "id": "c4413391e84bb394228a02ca",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+    "email": "cecilia@gmail.com",
+    "password": "Cecilia123",
+    "role": "user"
+  },
+  {
+    "id": "28c76b05a5d6cf5d81b32355",
+    "photo": "foto7.jpg",
+    "email": "carlos_m@gmail.com",
+    "password": "charly123",
+    "role": "user"
+  },
+  {
+    "id": "9f278a7847d8f4aa6b9b247d",
+    "photo": "fotofrente.jpg",
+    "email": "donvictor@gmail.com",
+    "password": "vicky_@2",
+    "role": "admin"
   }
 ]
