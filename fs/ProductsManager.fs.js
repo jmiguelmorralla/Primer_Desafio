@@ -175,6 +175,84 @@ async function testCreate() {
     stock: 7,
   });
 
+  await productManager.create({
+    photo: "foto5.jpg",
+    title: "Tobogan",
+    category: "plastico",
+    price: 45000,
+    stock: 15,
+  });
+  
+  await productManager.create({
+    photo: "fotom.jpg",
+    title: "Muneca",
+    category: "plastico",
+    price: 7200,
+    stock: 40,
+  });
+  
+  await productManager.create({
+    title: "Perro",
+    category: "madera",
+    price: 3500,
+    stock: 20,
+  });
+  
+  await productManager.create({
+    photo: "Elefante.jpg",
+    title: "Elefante",
+    category: "madera",
+    price: 8500,
+    stock: 60,
+  });
+  
+  await productManager.create({
+    photo: "Tigre.jpg",
+    title: "Tigre",
+    category: "madera",
+    price: 7000,
+    stock: 7,
+  });
+  
+  await productManager.create({
+    title: "Barco",
+    category: "plastico",
+    price: 5000,
+    stock: 25,
+  });
+  
+  await productManager.create({
+    photo: "foto13244.jpg",
+    title: "Bolitas",
+    category: "vidrio",
+    price: 3500,
+    stock: 20,
+  });
+  
+  await productManager.create({
+    photo: "foto34111.jpg",
+    title: "Raton",
+    category: "tela",
+    price: 3000,
+    stock: 10,
+  });
+  
+  await productManager.create({
+    photo: "doctor.jpg",
+    title: "Kit medico",
+    category: "plastico",
+    price: 6600,
+    stock: 3,
+  });
+  
+  await productManager.create({
+    photo: "animales.jpg",
+    title: "Animalitos",
+    category: "plastico",
+    price: 4600,
+    stock: 15,
+  });
+
   console.log(await productManager.read());
 }
 
@@ -186,17 +264,18 @@ async function testRead() {
 
 async function testReadOne() {
   const productManager = new ProductManager();
-  await productManager.readOne("844f540d20ff624655dbacff")
+  await productManager.readOne("")
   console.log(await productManager.readOne())
 }
 
 async function testDestroy() {
   const productManager = new ProductManager();
-  await productManager.destroy("83ebb90f2899376590bb33fa")
-  console.log(await productManager.readOne())
+  await productManager.destroy("")
+  console.log(await productManager.destroy())
 }
 
 // testCreate()
 // testRead()
 // testReadOne()
-testDestroy()
+// testDestroy()
+

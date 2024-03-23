@@ -113,7 +113,7 @@ productManager.create({
 productManager.create({
   title: "Pajarito",
   category: "tela",
-  price: 6,
+  price: 6000,
   stock: 18,
 });
 
@@ -142,7 +142,6 @@ productManager.create({
 });
 
 productManager.create({
-  id: "111",
   photo: "serpiente.jpg",
   title: "Serpiente",
   category: "tela",
@@ -150,4 +149,82 @@ productManager.create({
   stock: 7,
 });
 
-console.log(productManager.destroy("111"));
+productManager.create({
+  photo: "foto5.jpg",
+  title: "Tobogan",
+  category: "plastico",
+  price: 45000,
+  stock: 15,
+});
+
+productManager.create({
+  photo: "fotom.jpg",
+  title: "Muneca",
+  category: "plastico",
+  price: 7200,
+  stock: 40,
+});
+
+productManager.create({
+  title: "Perro",
+  category: "madera",
+  price: 3500,
+  stock: 20,
+});
+
+productManager.create({
+  photo: "Elefante.jpg",
+  title: "Elefante",
+  category: "madera",
+  price: 8500,
+  stock: 60,
+});
+
+productManager.create({
+  photo: "Tigre.jpg",
+  title: "Tigre",
+  category: "madera",
+  price: 7000,
+  stock: 7,
+});
+
+productManager.create({
+  title: "Barco",
+  category: "plastico",
+  price: 5000,
+  stock: 25,
+});
+
+productManager.create({
+  photo: "foto13244.jpg",
+  title: "Bolitas",
+  category: "vidrio",
+  price: 3500,
+  stock: 20,
+});
+
+productManager.create({
+  photo: "foto34111.jpg",
+  title: "Raton",
+  category: "tela",
+  price: 3000,
+  stock: 10,
+});
+
+productManager.create({
+  photo: "doctor.jpg",
+  title: "Kit medico",
+  category: "plastico",
+  price: 6600,
+  stock: 3,
+});
+
+productManager.create({
+  photo: "animales.jpg",
+  title: "Animalitos",
+  category: "plastico",
+  price: 4600,
+  stock: 15,
+});
+
+console.log(productManager.read());

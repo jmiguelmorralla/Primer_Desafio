@@ -26,7 +26,7 @@ class UserManager {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
         email: data.email,
         password: data.password,
-        role: data.role,
+        role: data.role || "0",
       };
 
       if (!data.email || !data.password || !data.role) {
@@ -99,27 +99,27 @@ async function testCreate() {
     photo: "foto.jpg",
     email: "juan@gmail.com",
     password: "holapepito@",
-    role: "admin",
+    role: "1",
   });
 
   await usersManager.create({
     email: "cecilia@gmail.com",
     password: "Cecilia123",
-    role: "user",
+    role: "0",
   });
 
   await usersManager.create({
     photo: "foto7.jpg",
     email: "carlos_m@gmail.com",
     password: "charly123",
-    role: "user",
+    role: "0",
   });
 
   await usersManager.create({
     photo: "fotofrente.jpg",
     email: "donvictor@gmail.com",
     password: "vicky_@2",
-    role: "admin",
+    role: "0",
   });
   console.log(await usersManager.read());
 }

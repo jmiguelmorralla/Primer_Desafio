@@ -1,58 +1,30 @@
 [
   {
-    "id": "1f63936fdce394bdbb6bac5b",
+    "id": "eca8da930f5f295d616fa5ff",
     "photo": "foto.jpg",
     "email": "juan@gmail.com",
     "password": "holapepito@",
-    "role": "admin"
+    "role": "1"
   },
   {
-    "id": "714475d2fc072f9c8b5f62da",
+    "id": "4090aa1fedd0e7a45beb80c4",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
     "email": "cecilia@gmail.com",
     "password": "Cecilia123",
-    "role": "user"
+    "role": "0"
   },
   {
-    "id": "cc3eab9641e1763bc82bc709",
+    "id": "3de4336840955e5fc246bc87",
     "photo": "foto7.jpg",
     "email": "carlos_m@gmail.com",
     "password": "charly123",
-    "role": "user"
+    "role": "0"
   },
   {
-    "id": "2de98075ba497f4a3a68982b",
+    "id": "c3f76d538d8b02e15579befb",
     "photo": "fotofrente.jpg",
     "email": "donvictor@gmail.com",
     "password": "vicky_@2",
-    "role": "admin"
-  },
-  {
-    "id": "5243421e0cb28805f2dd4faa",
-    "photo": "foto.jpg",
-    "email": "juan@gmail.com",
-    "password": "holapepito@",
-    "role": "admin"
-  },
-  {
-    "id": "c4413391e84bb394228a02ca",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
-    "email": "cecilia@gmail.com",
-    "password": "Cecilia123",
-    "role": "user"
-  },
-  {
-    "id": "28c76b05a5d6cf5d81b32355",
-    "photo": "foto7.jpg",
-    "email": "carlos_m@gmail.com",
-    "password": "charly123",
-    "role": "user"
-  },
-  {
-    "id": "9f278a7847d8f4aa6b9b247d",
-    "photo": "fotofrente.jpg",
-    "email": "donvictor@gmail.com",
-    "password": "vicky_@2",
-    "role": "admin"
+    "role": "0"
   }
 ]
