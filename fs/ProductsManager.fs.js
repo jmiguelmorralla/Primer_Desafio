@@ -62,11 +62,14 @@ class ProductManager {
     try {
       let products = await fs.promises.readFile(this.path, "utf-8");
       products = JSON.parse(products);
-      const product = products.find((each) => each.id === id);
+      let product = products.find((each) => each.id === id);
+      console.log(product)
       if (!product) {
         throw new Error("NO EXISTE EL PRODUCTO.");
-      }
-      return producto;
+      } else {
+        console.log(product)
+      return product};
+
     } catch (error) {
       console.log(error);
     }
@@ -76,11 +79,13 @@ class ProductManager {
     try {
       let products = await fs.promises.readFile(this.path, "utf-8");
       products = JSON.parse(products);
-      const filtered = products.filter((each) => each.id !== id);
-      if (!id) {
+      let product = products.find((each) => each.id === id)
+      if (!product) {
         throw new Error("NO EXISTEN PRODUCTOS CON ESE ID");
       } else {
-        await fs.promises.writeFile(filtered);
+        let filtered = products.filter((each) => each.id !== id);
+        filtered = JSON.stringify(filtered, null, 2)
+        await fs.promises.writeFile(this.path, filtered);
         console.log("PRODUCTO " + id + " ELIMINADO");
       }
     } catch (error) {
@@ -89,7 +94,7 @@ class ProductManager {
   }
 }
 
-async function test() {
+async function testCreate() {
   const gestorDeProductos = new ProductManager();
 
   await gestorDeProductos.create({
@@ -173,4 +178,25 @@ async function test() {
   console.log(await gestorDeProductos.read());
 }
 
-test();
+async function testRead() {
+  const gestorDeProductos = new ProductManager();
+  await gestorDeProductos.read()
+  console.log(await gestorDeProductos.read())
+}
+
+async function testReadOne() {
+  const gestorDeProductos = new ProductManager();
+  await gestorDeProductos.readOne("844f540d20ff624655dbacff")
+  console.log(await gestorDeProductos.readOne())
+}
+
+async function testDestroy() {
+  const gestorDeProductos = new ProductManager();
+  await gestorDeProductos.destroy("38aaf4eb1eb22b1aba8f137d")
+  console.log(await gestorDeProductos.readOne())
+}
+
+// testCreate()
+// testRead()
+// testReadOne()
+testDestroy()

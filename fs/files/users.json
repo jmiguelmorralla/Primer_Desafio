@@ -1,16 +1,30 @@
 [
   {
-    "id": "d49b9f62067409f47010dc1d",
+    "id": "1f63936fdce394bdbb6bac5b",
     "photo": "foto.jpg",
     "email": "juan@gmail.com",
     "password": "holapepito@",
     "role": "admin"
   },
   {
-    "id": "f67970416bcef25ba0d54fc1",
+    "id": "714475d2fc072f9c8b5f62da",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
     "email": "cecilia@gmail.com",
     "password": "Cecilia123",
     "role": "user"
+  },
+  {
+    "id": "cc3eab9641e1763bc82bc709",
+    "photo": "foto7.jpg",
+    "email": "carlos_m@gmail.com",
+    "password": "charly123",
+    "role": "user"
+  },
+  {
+    "id": "2de98075ba497f4a3a68982b",
+    "photo": "fotofrente.jpg",
+    "email": "donvictor@gmail.com",
+    "password": "vicky_@2",
+    "role": "admin"
   }
 ]

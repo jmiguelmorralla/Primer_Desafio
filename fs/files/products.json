@@ -1,6 +1,6 @@
 [
   {
-    "id": "f314d68aeb78d3af9fe45387",
+    "id": "e7d05444314d26da0fc25e7d",
     "title": "Balancin",
     "photo": "foto55.jpg",
     "category": "madera",
@@ -8,7 +8,7 @@
     "stock": 41
   },
   {
-    "id": "2776ce9da637e953ce813b6e",
+    "id": "402e270b9f16b65ef90b7286",
     "title": "Bloques",
     "photo": "foto7.jpg",
     "category": "plastico",
@@ -16,7 +16,7 @@
     "stock": 36
   },
   {
-    "id": "0018941eb6f47674bbea1e0b",
+    "id": "b211d193e2ed47c7ad99ca9c",
     "title": "Casita",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "madera",
@@ -24,7 +24,7 @@
     "stock": 22
   },
   {
-    "id": "445abfd721791bdd0418eb29",
+    "id": "1762725f8c3bc116246f9dfb",
     "title": "Luna",
     "photo": "luna4.jpg",
     "category": "madera",
@@ -32,7 +32,7 @@
     "stock": 39
   },
   {
-    "id": "902d313517807fcf04be5b27",
+    "id": "6dcb54c52b70a975fe57115b",
     "title": "Arcoiris",
     "photo": "arcoiris.jpg",
     "category": "madera",
@@ -40,7 +40,7 @@
     "stock": 36
   },
   {
-    "id": "6997dbec4c91aa3772def6d0",
+    "id": "78260283a25ec676f4042b9f",
     "title": "Pajarito",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "tela",
@@ -48,7 +48,7 @@
     "stock": 18
   },
   {
-    "id": "4ba14f328da2aa8ba7f5cbca",
+    "id": "737a389b65b2a0be7b3a2912",
     "title": "Piramide",
     "photo": "foto1.jpg",
     "category": "madera",
@@ -56,107 +56,11 @@
     "stock": 21
   },
   {
-    "id": "b8b0c669b06ffaee71ffd47d",
+    "id": "83ebb90f2899376590bb33fa",
     "title": "Auto",
     "photo": "foto344.jpg",
     "category": "madera",
     "price": 9900,
     "stock": 12
-  },
-  {
-    "id": "f7b227def5430fbdc450c617",
-    "title": "Titere",
-    "photo": "Titere.jpg",
-    "category": "tela",
-    "price": 4600,
-    "stock": 36
-  },
-  {
-    "id": "634195f0d099dad16436f6aa",
-    "title": "Serpiente",
-    "photo": "serpiente.jpg",
-    "category": "tela",
-    "price": 7000,
-    "stock": 7
-  },
-  {
-    "id": "6c7e0eeb20f3d00d6356dd57",
-    "title": "Balancin",
-    "photo": "foto55.jpg",
-    "category": "madera",
-    "price": 15000,
-    "stock": 41
-  },
-  {
-    "id": "4240591b9da4f6f81c3bf8f2",
-    "title": "Bloques",
-    "photo": "foto7.jpg",
-    "category": "plastico",
-    "price": 7000,
-    "stock": 36
-  },
-  {
-    "id": "79f67bf2b6315380ce335526",
-    "title": "Casita",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
-    "category": "madera",
-    "price": 6500,
-    "stock": 22
-  },
-  {
-    "id": "0a46748d46675f3e568a98bb",
-    "title": "Luna",
-    "photo": "luna4.jpg",
-    "category": "madera",
-    "price": 7500,
-    "stock": 39
-  },
-  {
-    "id": "2030fab94451172926043417",
-    "title": "Arcoiris",
-    "photo": "arcoiris.jpg",
-    "category": "madera",
-    "price": 7000,
-    "stock": 36
-  },
-  {
-    "id": "e811783a6197defc911cd083",
-    "title": "Pajarito",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
-    "category": "tela",
-    "price": 6,
-    "stock": 18
-  },
-  {
-    "id": "ccf23f111fbe868e871bec80",
-    "title": "Piramide",
-    "photo": "foto1.jpg",
-    "category": "madera",
-    "price": 9500,
-    "stock": 21
-  },
-  {
-    "id": "c4ca796922b97002c2176820",
-    "title": "Auto",
-    "photo": "foto344.jpg",
-    "category": "madera",
-    "price": 9900,
-    "stock": 12
-  },
-  {
-    "id": "aa90907dd1f73046c5ced4bf",
-    "title": "Titere",
-    "photo": "Titere.jpg",
-    "category": "tela",
-    "price": 4600,
-    "stock": 36
-  },
-  {
-    "id": "fec6e1b49b0f62a9cc1a30e7",
-    "title": "Serpiente",
-    "photo": "serpiente.jpg",
-    "category": "tela",
-    "price": 7000,
-    "stock": 7
   }
 ]

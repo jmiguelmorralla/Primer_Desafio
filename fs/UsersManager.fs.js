@@ -139,13 +139,13 @@ async function testReadOne() {
 
 async function testDestroy() {
   const gestorDeUsuarios = new UserManager();
-  await gestorDeUsuarios.destroy("af10527386783c2c9a958a05")
+  await gestorDeUsuarios.destroy("f67970416bcef25ba0d54fc1")
   console.log(await gestorDeUsuarios.readOne())
 }
 
-// testCreate()
+testCreate()
 // testRead()
 // testReadOne()
-testDestroy()
+// testDestroy()
 
 
