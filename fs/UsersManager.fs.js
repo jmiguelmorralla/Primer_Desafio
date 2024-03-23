@@ -43,10 +43,11 @@ class UserManager {
       console.log(error);
     }
   }
-  async read() {
+  async read(rol = users) {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
+      users = users.filter(each=>each.role===rol)
       if (!users) {
         new Error("Fail at reading array.");
       } else {
