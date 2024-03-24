@@ -43,7 +43,7 @@ class UserManager {
       console.log(error);
     }
   }
-  async read(rol = users) {
+  async read(rol = "0") {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
