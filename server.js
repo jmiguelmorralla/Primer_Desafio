@@ -1,5 +1,6 @@
 import express from "express";
 import usersManager from "./fs/UsersManager.fs.js";
+import productsManager from "./fs/ProductsManager.fs.js";
 
 // Server
 const server = express();
@@ -28,6 +29,56 @@ server.get("/", async (req, res) => {
   }
 });
 
+server.get("/api/products", async (req, res) => {
+    try {
+      const { category } = req.query;
+      const all = await productsManager.read(category);
+      if (all.length !== 0) {
+        return res.status(200).json({
+          response: all,
+          codeStatus: 200,
+          category,
+          success: true,
+        });
+      } else {
+        const error = new Error("Not found.");
+        error.statusCode = 404;
+        throw error;
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(error.statusCode).json({
+        response: null,
+        message: error.message,
+        codeStatus: error.statusCode,
+        success: false,
+      });
+    }
+  });
+  
+  server.get("/api/products/:pid", async (req, res) => {
+    try {
+      const { pid } = req.params;
+      const product = await productsManager.readOne(pid);
+      if (product) {
+        return res.status(200).json({
+          response: product,
+          success: true,
+        });
+      } else {
+        const error = new Error("Not found.");
+        error.statusCode = 404;
+        throw error;
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(error.statusCode).json({
+        response: error.message,
+        codeStatus: error.statusCode,
+        success: false,
+      });
+    }
+  });
 
 server.get("/api/users", async (req, res) => {
   try {

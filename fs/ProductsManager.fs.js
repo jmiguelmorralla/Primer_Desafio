@@ -1,5 +1,5 @@
-const fs = require("fs");
-const crypto = require("crypto");
+import fs from "fs";
+import crypto from "crypto";
 
 class ProductManager {
   constructor() {
@@ -44,10 +44,11 @@ class ProductManager {
       console.log(error);
     }
   }
-  async read() {
+  async read(cat = "madera") {
     try {
       let products = await fs.promises.readFile(this.path, "utf-8");
       products = JSON.parse(products);
+      products = products.filter(each=>each.category===cat)
       if (!products) {
         new Error("Error at reading array.");
       } else {
@@ -279,3 +280,5 @@ async function testDestroy() {
 // testReadOne()
 // testDestroy()
 
+const productsManager = new ProductManager()
+export default productsManager
