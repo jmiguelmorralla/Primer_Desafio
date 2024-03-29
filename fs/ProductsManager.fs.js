@@ -25,12 +25,12 @@ class ProductManager {
         photo:
           data.photo ||
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
-        category: data.category,
-        price: data.price,
-        stock: data.stock,
+        category: data.category || "plastico",
+        price: data.price || 1,
+        stock: data.stock || 1,
       };
 
-      if (!data.stock || !data.title || !data.category || !data.price) {
+      if (!data.title) {
         console.log("Not created file. Please complete required data.");
       } else {
         let products = await fs.promises.readFile(this.path, "utf-8");
@@ -44,7 +44,7 @@ class ProductManager {
       console.log(error);
     }
   }
-  async read(cat = "madera") {
+  async read(cat = "plastico") {
     try {
       let products = await fs.promises.readFile(this.path, "utf-8");
       products = JSON.parse(products);
@@ -252,6 +252,160 @@ async function testCreate() {
     category: "plastico",
     price: 4600,
     stock: 15,
+  });
+
+  await productManager.create({
+    photo: "toy1.jpg",
+    title: "Muneca de trapo",
+    category: "tela",
+    price: 7300,
+    stock: 50
+  });
+  
+  await productManager.create({
+    photo: "toy2.jpg",
+    title: "Bloques de construccion",
+    category: "madera",
+    price: 8500,
+    stock: 30
+  });
+  
+  await productManager.create({
+    photo: "toy3.jpg",
+    title: "Carro control remoto",
+    category: "plastico",
+    price: 6700,
+    stock: 20
+  });
+  
+  await productManager.create({
+    photo: "toy4.jpg",
+    title: "Puzzle 1000 piezas",
+    category: "madera",
+    price: 9300,
+    stock: 40
+  });
+  
+  await productManager.create({
+    photo: "toy5.jpg",
+    title: "Pelota de futbol",
+    category: "plastico",
+    price: 5200,
+    stock: 60
+  });
+  
+  await productManager.create({
+    photo: "toy6.jpg",
+    title: "Cocinita de juguete",
+    category: "metal",
+    price: 17600,
+    stock: 25
+  });
+  
+  await productManager.create({
+    photo: "toy7.jpg",
+    title: "Avion de juguete",
+    category: "plastico",
+    price: 5800,
+    stock: 35
+  });
+  
+  await productManager.create({
+    photo: "toy8.jpg",
+    title: "Muneco articulado",
+    category: "metal",
+    price: 14900,
+    stock: 45
+  });
+  
+  await productManager.create({
+    photo: "toy9.jpg",
+    title: "Juego de te de juguete",
+    category: "plastico",
+    price: 7300,
+    stock: 30
+  });
+  
+  await productManager.create({
+    photo: "toy10.jpg",
+    title: "Kit ciencia experimentos",
+    category: "plastico",
+    price: 12700,
+    stock: 25
+  });
+  
+  await productManager.create({
+    photo: "toy11.jpg",
+    title: "Peluche de animal",
+    category: "tela",
+    price: 9200,
+    stock: 40
+  });
+  
+  await productManager.create({
+    photo: "toy12.jpg",
+    title: "Juego de mesa clasico",
+    category: "madera",
+    price: 10100,
+    stock: 35
+  });
+  
+  await productManager.create({
+    photo: "toy13.jpg",
+    title: "Robot transformable",
+    category: "metal",
+    price: 16200,
+    stock: 20
+  });
+  
+  await productManager.create({
+    photo: "toy14.jpg",
+    title: "Tren de juguete",
+    category: "metal",
+    price: 8700,
+    stock: 30
+  });
+  
+  await productManager.create({
+    photo: "toy15.jpg",
+    title: "Set de plastilina",
+    category: "plastico",
+    price: 5400,
+    stock: 50
+  });
+  
+  await productManager.create({
+    photo: "toy16.jpg",
+    title: "Pelota de baloncesto",
+    category: "plastico",
+    price: 7800,
+    stock: 40
+  });
+  
+  await productManager.create({
+    photo: "toy17.jpg",
+    title: "Dinosaurio de juguete",
+    category: "plastico",
+    price: 6900,
+    stock: 55
+  });
+  
+  await productManager.create({
+    photo: "toy18.jpg",
+    title: "Set de pinturas y pinceles",
+    category: "plastico",
+    price: 6400,
+    stock: 30
+  });
+  
+  await productManager.create({
+    photo: "toy19.jpg",
+    title: "Kit construccion vehiculos",
+    price: 17800,
+  });
+  
+  await productManager.create({
+    title: "Instrumento musical juguete",
   });
 
   console.log(await productManager.read());
