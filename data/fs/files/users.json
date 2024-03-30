@@ -1,0 +1,30 @@
+[
+  {
+    "id": "475833b53e0e162ff05c438a",
+    "photo": "foto.jpg",
+    "email": "juan@gmail.com",
+    "password": "holapepito@",
+    "role": "1"
+  },
+  {
+    "id": "63e3ff079f5527b01593046e",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+    "email": "cecilia@gmail.com",
+    "password": "Cecilia123",
+    "role": "0"
+  },
+  {
+    "id": "a7a18357b4a02f0b501866a6",
+    "photo": "foto7.jpg",
+    "email": "carlos_m@gmail.com",
+    "password": "charly123",
+    "role": "0"
+  },
+  {
+    "id": "01154bc466301506bfccf639",
+    "photo": "fotofrente.jpg",
+    "email": "donvictor@gmail.com",
+    "password": "vicky_@2",
+    "role": "0"
+  }
+]

@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class UserManager {
   constructor() {
-    this.path = "./fs/files/users.json";
+    this.path = "./data/fs/files/users.json";
     this.init();
   }
   init() {
@@ -47,7 +47,7 @@ class UserManager {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      users = users.filter(each=>each.role===rol)
+      users = users.filter((each) => each.role === rol);
       if (!users) {
         new Error("Fail at reading array.");
       } else {
@@ -63,15 +63,36 @@ class UserManager {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
       let user = users.find((each) => each.id === id);
-      console.log(user)
+      console.log(user);
       if (!user) {
         throw new Error("User not found.");
       } else {
-        console.log(user)
-      return user};
-
+        console.log(user);
+        return user;
+      }
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async update(id, data) {
+    try {
+      let users = await this.read();
+      let user = all.find((each) => each.id === id);
+      if (user) {
+        for (let prop in data) {
+          user[prop] = data[prop];
+        }
+        users = JSON.stringify(users, null, 2);
+        await fs.promises.writeFile(this.path, users);
+        return user;
+      } else {
+        const error = new Error("Not user found.");
+        error.statusCode = 404;
+        throw error;
+      }
+    } catch (error) {
+      throw error;
     }
   }
 
@@ -79,12 +100,12 @@ class UserManager {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      let user = users.find((each) => each.id === id)
+      let user = users.find((each) => each.id === id);
       if (!user) {
         throw new Error("No ID users found.");
       } else {
         let filtered = users.filter((each) => each.id !== id);
-        filtered = JSON.stringify(filtered, null, 2)
+        filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
         console.log("Deleted " + id + " user.");
       }
@@ -125,23 +146,22 @@ async function testCreate() {
   console.log(await usersManager.read());
 }
 
-
 async function testRead() {
   const usersManager = new UserManager();
-  await usersManager.read()
-  console.log(await usersManager.read())
+  await usersManager.read();
+  console.log(await usersManager.read());
 }
 
 async function testReadOne() {
   const usersManager = new UserManager();
-  await usersManager.readOne("")
-  console.log(await usersManager.readOne())
+  await usersManager.readOne("");
+  console.log(await usersManager.readOne());
 }
 
 async function testDestroy() {
   const usersManager = new UserManager();
-  await usersManager.destroy("")
-  console.log(await usersManager.readOne())
+  await usersManager.destroy("");
+  console.log(await usersManager.readOne());
 }
 
 // testCreate()
@@ -149,6 +169,5 @@ async function testDestroy() {
 // testReadOne()
 // testDestroy()
 
-
-const usersManager = new UserManager()
-export default usersManager
+const usersManager = new UserManager();
+export default usersManager;
