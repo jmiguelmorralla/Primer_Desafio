@@ -19,19 +19,18 @@ class UserManager {
 
   async create(data) {
     try {
-      const user = {
-        id: crypto.randomBytes(12).toString("hex"),
-        photo:
-          data.photo ||
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
-        email: data.email,
-        password: data.password,
-        role: data.role || "0",
-      };
-
       if (!data.email || !data.password) {
-        console.log("Not created user. Please complete required data.");
+        throw new Error("Not created user. Please complete EMAIL and PASSWORD.");
       } else {
+        const user = {
+          id: crypto.randomBytes(12).toString("hex"),
+          photo:
+            data.photo ||
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+          email: data.email,
+          password: data.password,
+          role: data.role || "0",
+        };
         let users = await fs.promises.readFile(this.path, "utf-8");
         users = JSON.parse(users);
         users.push(user);

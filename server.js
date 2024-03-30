@@ -1,5 +1,7 @@
 import express from "express";
 import indexRouter from "./src/router/index.router.js";
+import errorHandler from "./src/middlewares/errorHandler.mid.js";
+import pathHandler from "./src/middlewares/pathHandler.mid.js";
 
 // Server
 const server = express();
@@ -12,30 +14,6 @@ server.listen(port, ready);
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
-// Router
 server.use("/", indexRouter)
-
-
-// server.get("/", async (req, res) => {
-//   try {
-//     return res.status(200).json({
-//       response: "Correct reading.",
-//       success: true,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(404).json({
-//       response: "Null",
-//       message: error.message || "Api error.",
-//       success: false,
-//     });
-//   }
-// });
-
-
-
-
-
-
-
-
+server.use(errorHandler)
+server.use(pathHandler)

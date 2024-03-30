@@ -1,7 +1,7 @@
 import { Router } from "express";
-import productsManager from "../../data/fs/ProductsManager.fs.js"
+import productsManager from "../../data/fs/ProductsManager.fs.js";
 
-const productsRouter = Router()
+const productsRouter = Router();
 
 productsRouter.get("/:pid", readOne);
 productsRouter.get("/", read);
@@ -9,8 +9,7 @@ productsRouter.post("/", create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
-
-async function readOne (req, res) {
+async function readOne(req, res, next) {
   try {
     const { pid } = req.params;
     const product = await productsManager.readOne(pid);
@@ -25,14 +24,11 @@ async function readOne (req, res) {
       throw error;
     }
   } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "Api Error.",
-    });
+    return next(error);
   }
-};
+}
 
-async function read (req, res) {
+async function read(req, res, next) {
   try {
     const { category } = req.query;
     const products = await productsManager.read(category);
@@ -49,62 +45,50 @@ async function read (req, res) {
       throw error;
     }
   } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "Api Error.",
-    });
+    return next(error);
   }
 }
 
-async function create (req, res) {
-    try {
-      const data = req.body;
-      const product = await productsManager.create(data);
-      return res.json({
-        statusCode: 201,
-        message: "Product id: " + product.id + " created succesfully.",
-      });
-    } catch (error) {
-      return res.json({
-        statusCode: error.statusCode || 500,
-        message: error.message || "Api Error.",
-      });
-    }
-  };
-  
-async function update (req, res) {
-    try {
-      const { pid } = req.params;
-      const data = req.body;
-      const product = await productsManager.update(pid, data);
-      return res.json({
-        statusCode: 200,
-        response: product,
-        message: "Updated product ID: " + product.id,
-      });
-    } catch (error) {
-      return res.json({
-        statusCode: error.statusCode || 500,
-        message: error.message || "Api Error.",
-      });
-    }
-  };
-  
-async function destroy (req, res) {
-    try {
-      const { pid } = req.params;
-      const product = await productsManager.destroy(pid);
-      return res.json({
-        statusCode: 200,
-        response: product,
-        message: "Deleted product ID: " + product.id,
-      });
-    } catch (error) {
-      return res.json({
-        statusCode: error.statusCode || 500,
-        message: error.message || "Api Error.",
-      });
-    }
-  };
+async function create(req, res, next) {
+  try {
+    const data = req.body;
+    const product = await productsManager.create(data);
+    return res.json({
+      statusCode: 201,
+      message: "Product id: " + product.id + " created succesfully.",
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
 
-export default productsRouter
+async function update(req, res, next) {
+  try {
+    const { pid } = req.params;
+    const data = req.body;
+    const product = await productsManager.update(pid, data);
+    return res.json({
+      statusCode: 200,
+      response: product,
+      message: "Updated product ID: " + product.id,
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
+
+async function destroy(req, res, next) {
+  try {
+    const { pid } = req.params;
+    const product = await productsManager.destroy(pid);
+    return res.json({
+      statusCode: 200,
+      response: product,
+      message: "Deleted product ID: " + product.id,
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
+
+export default productsRouter;

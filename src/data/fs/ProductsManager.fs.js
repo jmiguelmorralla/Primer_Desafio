@@ -20,7 +20,7 @@ class ProductManager {
   async create(data) {
     try {
       if (!data.title) {
-        throw new Error("Not created file. Please complete TITLE.");
+        throw new Error("Not created product. Please complete TITLE.");
       } else {
         const product = {
           id: crypto.randomBytes(12).toString("hex"),
