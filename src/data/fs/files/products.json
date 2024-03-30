@@ -1,13 +1,5 @@
 [
   {
-    "id": "5ba47d1ae4b41dc594814651",
-    "title": "Balancin",
-    "photo": "foto55.jpg",
-    "category": "madera",
-    "price": 15000,
-    "stock": 41
-  },
-  {
     "id": "d06bb276897124fce7dca86f",
     "title": "Bloques",
     "photo": "foto7.jpg",
@@ -291,13 +283,21 @@
     "id": "82ffec0e67a51f74f3d57b75",
     "title": "Dinosaurio de juguete",
     "photo": "toy17.jpg",
-    "category": "plastico",
+    "category": "madera",
     "price": 6900,
     "stock": 55
   },
   {
-    "id": "ad29d4b11e588635a13c2034",
-    "title": "notebook",
+    "id": "31ddac1f40813f7864aa9e93",
+    "title": "notebook chica",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
+    "category": "plastico",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "f8665148071c52f6d8ad5313",
+    "title": "notebook grande",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "plastico",
     "price": 1,

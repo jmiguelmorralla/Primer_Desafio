@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class ProductManager {
   constructor() {
-    this.path = "./data/fs/files/products.json";
+    this.path = "./src/data/fs/files/products.json";
     this.init();
   }
   init() {
@@ -36,7 +36,7 @@ class ProductManager {
         let products = await fs.promises.readFile(this.path, "utf-8");
         products = JSON.parse(products);
         products.push(product);
-        console.log("Created Product.");
+        console.log("Product created succesfully.");
         products = JSON.stringify(products, null, 2);
         await fs.promises.writeFile(this.path, products);
         return product;

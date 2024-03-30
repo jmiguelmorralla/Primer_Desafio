@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class UserManager {
   constructor() {
-    this.path = "./data/fs/files/users.json";
+    this.path = "./src/data/fs/files/users.json";
     this.init();
   }
   init() {
@@ -29,7 +29,7 @@ class UserManager {
         role: data.role || "0",
       };
 
-      if (!data.email || !data.password || !data.role) {
+      if (!data.email || !data.password) {
         console.log("Not created user. Please complete required data.");
       } else {
         let users = await fs.promises.readFile(this.path, "utf-8");
@@ -38,6 +38,7 @@ class UserManager {
         console.log("User created succesfully.");
         users = JSON.stringify(users, null, 2);
         await fs.promises.writeFile(this.path, users);
+        return user;
       }
     } catch (error) {
       console.log(error);
@@ -47,7 +48,7 @@ class UserManager {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      users = users.filter((each) => each.role === rol);
+      rol && (users = users.filter((each) => each.role === rol));
       if (!users) {
         new Error("Fail at reading array.");
       } else {
@@ -77,8 +78,9 @@ class UserManager {
 
   async update(id, data) {
     try {
-      let users = await this.read();
-      let user = all.find((each) => each.id === id);
+      let users = await fs.promises.readFile(this.path, "utf-8");
+      users = JSON.parse(users);
+      let user = users.find((each) => each.id === id);
       if (user) {
         for (let prop in data) {
           user[prop] = data[prop];
@@ -102,15 +104,18 @@ class UserManager {
       users = JSON.parse(users);
       let user = users.find((each) => each.id === id);
       if (!user) {
-        throw new Error("No ID users found.");
+        const error = new Error("User does not exist.");
+        error.statusCode = 404;
+        throw error;
       } else {
         let filtered = users.filter((each) => each.id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
         console.log("Deleted " + id + " user.");
+        return user;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 }
