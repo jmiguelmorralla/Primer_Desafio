@@ -1,6 +1,14 @@
 [
   {
-    "id": "d06bb276897124fce7dca86f",
+    "id": "76319980df72851a8ad3516d",
+    "title": "Balancin",
+    "photo": "foto55.jpg",
+    "category": "madera",
+    "price": 15000,
+    "stock": 41
+  },
+  {
+    "id": "ffee08123df650aae2e50205",
     "title": "Bloques",
     "photo": "foto7.jpg",
     "category": "plastico",
@@ -8,7 +16,7 @@
     "stock": 36
   },
   {
-    "id": "0f49d71d35b964fd6c043e85",
+    "id": "41eff8da2305b28284aa3739",
     "title": "Casita",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "madera",
@@ -16,7 +24,7 @@
     "stock": 22
   },
   {
-    "id": "22a22e63d3fe64dc5cd95eba",
+    "id": "47bc2b3175bc978222a80773",
     "title": "Luna",
     "photo": "luna4.jpg",
     "category": "madera",
@@ -24,7 +32,7 @@
     "stock": 39
   },
   {
-    "id": "efabf211db6f8a6af2521a78",
+    "id": "d29335e269ebb4f40b426e1a",
     "title": "Arcoiris",
     "photo": "arcoiris.jpg",
     "category": "madera",
@@ -32,7 +40,7 @@
     "stock": 36
   },
   {
-    "id": "8993711161b76ce4c1fa7585",
+    "id": "ca8f98ef6afe7f4c2acb9e92",
     "title": "Pajarito",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "tela",
@@ -40,7 +48,7 @@
     "stock": 18
   },
   {
-    "id": "ffc155637ca893c5d8f3363d",
+    "id": "0b5133a33511aba2c1ca0885",
     "title": "Piramide",
     "photo": "foto1.jpg",
     "category": "madera",
@@ -48,7 +56,7 @@
     "stock": 21
   },
   {
-    "id": "5fb15f606e25cb860741b7d3",
+    "id": "cf4efee9e1833387a8626866",
     "title": "Auto",
     "photo": "foto344.jpg",
     "category": "madera",
@@ -56,7 +64,7 @@
     "stock": 12
   },
   {
-    "id": "cc2a8a687c1771fd7198cbbf",
+    "id": "5b59f8cc131064b3e301f839",
     "title": "Titere",
     "photo": "Titere.jpg",
     "category": "tela",
@@ -64,7 +72,7 @@
     "stock": 36
   },
   {
-    "id": "fd6296254314b57e231170a2",
+    "id": "25d857dc5e3b197e5ac20db5",
     "title": "Serpiente",
     "photo": "serpiente.jpg",
     "category": "tela",
@@ -72,7 +80,7 @@
     "stock": 7
   },
   {
-    "id": "2e8cc6a7cf68649926a73219",
+    "id": "2ec5e6760f31f43256a16391",
     "title": "Tobogan",
     "photo": "foto5.jpg",
     "category": "plastico",
@@ -80,7 +88,7 @@
     "stock": 15
   },
   {
-    "id": "f33252c8c9e9ed189da94dfc",
+    "id": "4ebf20a4ee6dd92e6ca40fe0",
     "title": "Muneca",
     "photo": "fotom.jpg",
     "category": "plastico",
@@ -88,7 +96,7 @@
     "stock": 40
   },
   {
-    "id": "ce3381004a87aec4f5e27119",
+    "id": "bbce833366d627c41afa4223",
     "title": "Perro",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "madera",
@@ -96,7 +104,7 @@
     "stock": 20
   },
   {
-    "id": "ddaa16823af3d224c0fd4706",
+    "id": "2942d1990a99d1c8c8f7c851",
     "title": "Elefante",
     "photo": "Elefante.jpg",
     "category": "madera",
@@ -104,7 +112,7 @@
     "stock": 60
   },
   {
-    "id": "55d8efdf74feaec8fa954f07",
+    "id": "0a61e2d584bf655086a02688",
     "title": "Tigre",
     "photo": "Tigre.jpg",
     "category": "madera",
@@ -112,7 +120,7 @@
     "stock": 7
   },
   {
-    "id": "2202f8cbe50011f90174755c",
+    "id": "9fd93293c0a97981cdb44bc1",
     "title": "Barco",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
     "category": "plastico",
@@ -120,7 +128,7 @@
     "stock": 25
   },
   {
-    "id": "b6a504cddfb1b2252483c9fe",
+    "id": "f0af8a536652877c34e4d836",
     "title": "Bolitas",
     "photo": "foto13244.jpg",
     "category": "vidrio",
@@ -128,7 +136,7 @@
     "stock": 20
   },
   {
-    "id": "6b4fcf80e722c7027e40a15e",
+    "id": "0e1eae040a15d5f61b1ed74b",
     "title": "Raton",
     "photo": "foto34111.jpg",
     "category": "tela",
@@ -136,7 +144,7 @@
     "stock": 10
   },
   {
-    "id": "230945160bd1c65075e7923c",
+    "id": "071b305adefcf5d5f48f7e6a",
     "title": "Kit medico",
     "photo": "doctor.jpg",
     "category": "plastico",
@@ -144,7 +152,7 @@
     "stock": 3
   },
   {
-    "id": "6d070097d218b0ad24cd12ab",
+    "id": "463fb245bb907d5eb266c60c",
     "title": "Animalitos",
     "photo": "animales.jpg",
     "category": "plastico",
@@ -152,7 +160,7 @@
     "stock": 15
   },
   {
-    "id": "911521c6fa97f5a2bee066a8",
+    "id": "67935ec695c7d215a622ee4f",
     "title": "Muneca de trapo",
     "photo": "toy1.jpg",
     "category": "tela",
@@ -160,7 +168,7 @@
     "stock": 50
   },
   {
-    "id": "4a6856866c35a33fe138e11d",
+    "id": "93d992e699f9b151e6fe66ad",
     "title": "Bloques de construccion",
     "photo": "toy2.jpg",
     "category": "madera",
@@ -168,7 +176,7 @@
     "stock": 30
   },
   {
-    "id": "86a353008a313f3a5a2b378c",
+    "id": "e9e1d408ba80fd18e3c48b14",
     "title": "Carro control remoto",
     "photo": "toy3.jpg",
     "category": "plastico",
@@ -176,7 +184,7 @@
     "stock": 20
   },
   {
-    "id": "af20dec2e3d6dc4cf7245592",
+    "id": "2fe66ef5406adf1e334332d7",
     "title": "Puzzle 1000 piezas",
     "photo": "toy4.jpg",
     "category": "madera",
@@ -184,7 +192,7 @@
     "stock": 40
   },
   {
-    "id": "7f5cdbbd94d1081520ec16aa",
+    "id": "7a39e72b7778c7bbfb14d647",
     "title": "Pelota de futbol",
     "photo": "toy5.jpg",
     "category": "plastico",
@@ -192,7 +200,7 @@
     "stock": 60
   },
   {
-    "id": "5c4bc58d82d9d17b54842fb7",
+    "id": "2ca8663272aad604b5845bc2",
     "title": "Cocinita de juguete",
     "photo": "toy6.jpg",
     "category": "metal",
@@ -200,7 +208,7 @@
     "stock": 25
   },
   {
-    "id": "d6aec49ebcd3808ed1d7bf35",
+    "id": "ad2eb0032338bafa4f83294e",
     "title": "Avion de juguete",
     "photo": "toy7.jpg",
     "category": "plastico",
@@ -208,7 +216,7 @@
     "stock": 35
   },
   {
-    "id": "07c301af236866f9e1532f10",
+    "id": "70ecc407545ccee7dd51e35f",
     "title": "Muneco articulado",
     "photo": "toy8.jpg",
     "category": "metal",
@@ -216,7 +224,7 @@
     "stock": 45
   },
   {
-    "id": "faf0daef8b1b69426347c297",
+    "id": "183b6603b07c7c3935c41094",
     "title": "Juego de te de juguete",
     "photo": "toy9.jpg",
     "category": "plastico",
@@ -224,7 +232,7 @@
     "stock": 30
   },
   {
-    "id": "86340dac24398a06d84f7b5a",
+    "id": "4d817db347c92c2b5546b8b3",
     "title": "Kit ciencia experimentos",
     "photo": "toy10.jpg",
     "category": "plastico",
@@ -232,7 +240,7 @@
     "stock": 25
   },
   {
-    "id": "8489a5ae8e4174de0f7cc1e3",
+    "id": "8cf6895e09fccd6efdd8c372",
     "title": "Peluche de animal",
     "photo": "toy11.jpg",
     "category": "tela",
@@ -240,7 +248,7 @@
     "stock": 40
   },
   {
-    "id": "7a1c5c2ee30867f159b92d44",
+    "id": "5f9374c3ae8616a53ffb9d1d",
     "title": "Juego de mesa clasico",
     "photo": "toy12.jpg",
     "category": "madera",
@@ -248,7 +256,7 @@
     "stock": 35
   },
   {
-    "id": "861923833b8ecb62ee2a8923",
+    "id": "efd87afbde4f3ba83cd85a3d",
     "title": "Robot transformable",
     "photo": "toy13.jpg",
     "category": "metal",
@@ -256,7 +264,7 @@
     "stock": 20
   },
   {
-    "id": "1e07b4edaa54aee6c67a32cc",
+    "id": "e9e83674213290dfc75fac7d",
     "title": "Tren de juguete",
     "photo": "toy14.jpg",
     "category": "metal",
@@ -264,7 +272,7 @@
     "stock": 30
   },
   {
-    "id": "4db483d7525c0d99b3257931",
+    "id": "dfcaa506cb1e5b615d2e1efb",
     "title": "Set de plastilina",
     "photo": "toy15.jpg",
     "category": "plastico",
@@ -272,7 +280,7 @@
     "stock": 50
   },
   {
-    "id": "0da61082994b0bc3201c2cf8",
+    "id": "2864a342c4ccceebc8edb984",
     "title": "Pelota de baloncesto",
     "photo": "toy16.jpg",
     "category": "plastico",
@@ -280,26 +288,34 @@
     "stock": 40
   },
   {
-    "id": "82ffec0e67a51f74f3d57b75",
+    "id": "5e31674a7c802099cb859495",
     "title": "Dinosaurio de juguete",
     "photo": "toy17.jpg",
-    "category": "madera",
+    "category": "plastico",
     "price": 6900,
     "stock": 55
   },
   {
-    "id": "31ddac1f40813f7864aa9e93",
-    "title": "notebook chica",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
+    "id": "6a469f6015b9948b12ab087e",
+    "title": "Set de pinturas y pinceles",
+    "photo": "toy18.jpg",
     "category": "plastico",
-    "price": 1,
+    "price": 6400,
+    "stock": 30
+  },
+  {
+    "id": "40be3fb314c99ffa400f23d1",
+    "title": "Kit construccion vehiculos",
+    "photo": "toy19.jpg",
+    "category": "plastico",
+    "price": 17800,
     "stock": 1
   },
   {
-    "id": "f8665148071c52f6d8ad5313",
-    "title": "notebook grande",
+    "id": "afe506c13dcdd1b32919015f",
+    "title": "Instrumento musical juguete",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
-    "category": "plastico",
+    "category": "tela",
     "price": 1,
     "stock": 1
   }

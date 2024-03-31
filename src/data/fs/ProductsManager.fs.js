@@ -462,7 +462,6 @@ async function testDestroy() {
   console.log(await productManager.destroy());
 }
 
-// testCreate();
 // testRead()
 // testReadOne()
 // testUpdate()

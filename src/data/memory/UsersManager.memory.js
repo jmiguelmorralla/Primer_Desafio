@@ -14,14 +14,17 @@ class UserManager {
         role: data.role || "0",
       };
 
-      if (!data.email || !data.password || !data.role) {
-        console.log("Not created user. Please complete required data.");
+      if (!data.email || !data.password) {
+        throw new Error(
+          "Not created user. Please complete EMAIL and PASSWORD."
+        );
       } else {
         UserManager.#users.push(user);
         console.log("User created succesfully.");
+        return user;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
   read() {
@@ -33,7 +36,7 @@ class UserManager {
         return users;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 
@@ -46,7 +49,26 @@ class UserManager {
         return user;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
+    }
+  }
+
+  update(id, data) {
+    try {
+      let user = UserManager.#users.find((each) => each.id === id);
+      console.log(user);
+      if (user) {
+        for (let prop in data) {
+          user[prop] = data[prop];
+        }
+        return user;
+      } else {
+        const error = new Error("Not user found.");
+        error.statusCode = 404;
+        throw error;
+      }
+    } catch (error) {
+      throw error;
     }
   }
 
@@ -60,7 +82,7 @@ class UserManager {
         console.log("Deleted " + id + " user.");
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 }

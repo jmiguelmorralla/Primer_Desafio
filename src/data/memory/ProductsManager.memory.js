@@ -15,14 +15,14 @@ class ProductManager {
         stock: data.stock,
       };
 
-      if (!data.stock || !data.title || !data.category || !data.price) {
-        console.log("Not created file. Please complete required data.");
+      if (!data.title) {
+        console.log("Not created file. Please complete TITLE.");
       } else {
         ProductManager.#products.push(product);
         console.log("Created Product.");
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
   read() {
@@ -34,21 +34,40 @@ class ProductManager {
         return products;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 
   readOne(id) {
     try {
       const product = ProductManager.#products.find((each) => each.id === id);
-      console.log(product)
+      console.log(product);
       if (!product) {
         throw new Error("Product does not exist.");
       } else {
         return product;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
+    }
+  }
+
+  update(id, data) {
+    try {
+      let product = ProductManager.#products.find((each) => each.id === id);
+      console.log(product);
+      if (product) {
+        for (let prop in data) {
+          product[prop] = data[prop];
+        }
+        return product;
+      } else {
+        const error = new Error("Not product found.");
+        error.statusCode = 404;
+        throw error;
+      }
+    } catch (error) {
+      throw error;
     }
   }
 
@@ -64,7 +83,7 @@ class ProductManager {
         console.log("Deleted " + id + " product.");
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 }
@@ -113,7 +132,7 @@ productManager.create({
 productManager.create({
   title: "Pajarito",
   category: "tela",
-  price: 6000,
+  price: 6,
   stock: 18,
 });
 
@@ -225,6 +244,161 @@ productManager.create({
   category: "plastico",
   price: 4600,
   stock: 15,
+});
+
+productManager.create({
+  photo: "toy1.jpg",
+  title: "Muneca de trapo",
+  category: "tela",
+  price: 7300,
+  stock: 50,
+});
+
+productManager.create({
+  photo: "toy2.jpg",
+  title: "Bloques de construccion",
+  category: "madera",
+  price: 8500,
+  stock: 30,
+});
+
+productManager.create({
+  photo: "toy3.jpg",
+  title: "Carro control remoto",
+  category: "plastico",
+  price: 6700,
+  stock: 20,
+});
+
+productManager.create({
+  photo: "toy4.jpg",
+  title: "Puzzle 1000 piezas",
+  category: "madera",
+  price: 9300,
+  stock: 40,
+});
+
+productManager.create({
+  photo: "toy5.jpg",
+  title: "Pelota de futbol",
+  category: "plastico",
+  price: 5200,
+  stock: 60,
+});
+
+productManager.create({
+  photo: "toy6.jpg",
+  title: "Cocinita de juguete",
+  category: "metal",
+  price: 17600,
+  stock: 25,
+});
+
+productManager.create({
+  photo: "toy7.jpg",
+  title: "Avion de juguete",
+  category: "plastico",
+  price: 5800,
+  stock: 35,
+});
+
+productManager.create({
+  photo: "toy8.jpg",
+  title: "Muneco articulado",
+  category: "metal",
+  price: 14900,
+  stock: 45,
+});
+
+productManager.create({
+  photo: "toy9.jpg",
+  title: "Juego de te de juguete",
+  category: "plastico",
+  price: 7300,
+  stock: 30,
+});
+
+productManager.create({
+  photo: "toy10.jpg",
+  title: "Kit ciencia experimentos",
+  category: "plastico",
+  price: 12700,
+  stock: 25,
+});
+
+productManager.create({
+  photo: "toy11.jpg",
+  title: "Peluche de animal",
+  category: "tela",
+  price: 9200,
+  stock: 40,
+});
+
+productManager.create({
+  photo: "toy12.jpg",
+  title: "Juego de mesa clasico",
+  category: "madera",
+  price: 10100,
+  stock: 35,
+});
+
+productManager.create({
+  photo: "toy13.jpg",
+  title: "Robot transformable",
+  category: "metal",
+  price: 16200,
+  stock: 20,
+});
+
+productManager.create({
+  photo: "toy14.jpg",
+  title: "Tren de juguete",
+  category: "metal",
+  price: 8700,
+  stock: 30,
+});
+
+productManager.create({
+  photo: "toy15.jpg",
+  title: "Set de plastilina",
+  category: "plastico",
+  price: 5400,
+  stock: 50,
+});
+
+productManager.create({
+  photo: "toy16.jpg",
+  title: "Pelota de baloncesto",
+  category: "plastico",
+  price: 7800,
+  stock: 40,
+});
+
+productManager.create({
+  photo: "toy17.jpg",
+  title: "Dinosaurio de juguete",
+  category: "plastico",
+  price: 6900,
+  stock: 55,
+});
+
+productManager.create({
+  photo: "toy18.jpg",
+  title: "Set de pinturas y pinceles",
+  category: "plastico",
+  price: 6400,
+  stock: 30,
+});
+
+productManager.create({
+  photo: "toy19.jpg",
+  title: "Kit construccion vehiculos",
+  price: 17800,
+});
+
+productManager.create({
+  title: "Instrumento musical juguete",
+  category: "tela",
 });
 
 console.log(productManager.read());

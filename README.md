@@ -1,11 +1,36 @@
 # Primera Entrega del Proyecto Final
+
 Primera Entrega del Proyecto Final - Curso Backend
 
-En esta tercera entrega se implementan los conocimientos de las clases de servidores.
+En esta tercera entrega se implementan:
 
-Se crearon endpoints para productos (/api/products) y usuarios (/api/users) y se pueden hacer consultas en ambos casos ya que se crearon las querys correspondientes para consultar productos por categoría (madera, plastico, tela o vidrio) y por roles de usuario (0 y 1). Respecto a params, se configuraron tanto productos como usuarios para que puedan consultarse por ID desde el navegador.
+Gestores de “productos” y de “usuarios” para guardar los datos en la memoria (memory) y en archivos (files).
+- create(data) para crear un recurso
+- read() para leer todos los recursos
+- readOne(id) para leer este recurso
+- update(id,data) para actualizar este recurso
+- destroy(id) para eliminar este recurso
 
-Para lograr todo esto se trabajó sobre los archivos "Manager.fs.js" a fin de exportar las instancias de las clases correspondientes e importarlas desde server.js. 
+El desarrollo está 100% en inglés para definir una API REST.
 
-En la Pull Request se envían capturas de pantalla de la implementación como del manejo de errores.
+Se crearon todos los endpoints requeridos para la entrega tanto para usuarios como para productos.
+
+Se manejan errores de todas las rutas con errorHandler y rutas que no existen con pathHandler y el registro de las solicitudes con Morgan.
+
+Se definieron cuatro usuarios y cuarenta productos.
+
+Cada producto tiene las propiedades:
+- id (código identificador de 12bytes y hexadecimal)
+- title (titulo, obligatorio)
+- photo (ruta de imagen, con valores por defecto)
+- category (categoria del producto, con valores por defecto)
+- price (precio, por defecto 1)
+- stock (unidades disponibles, por defecto 1)
+
+Cada usuario tiene las propiedades:
+- id (12bytes y hexadecimal)
+- photo (ruta de imagen, dar valores por defecto)
+- email (obligatorio)
+- password (obligatorio)
+- role (rol de usuario, por defecto 0)
 

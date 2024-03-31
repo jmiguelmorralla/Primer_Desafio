@@ -5,4 +5,4 @@ function pathHandler(req, res, next) {
   });
 }
 
-export default pathHandler
+export default pathHandler;

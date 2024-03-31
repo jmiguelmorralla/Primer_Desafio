@@ -20,7 +20,9 @@ class UserManager {
   async create(data) {
     try {
       if (!data.email || !data.password) {
-        throw new Error("Not created user. Please complete EMAIL and PASSWORD.");
+        throw new Error(
+          "Not created user. Please complete EMAIL and PASSWORD."
+        );
       } else {
         const user = {
           id: crypto.randomBytes(12).toString("hex"),
@@ -40,10 +42,10 @@ class UserManager {
         return user;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  async read(rol = "0") {
+  async read(rol) {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
@@ -54,7 +56,7 @@ class UserManager {
         return users;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 
@@ -71,7 +73,7 @@ class UserManager {
         return user;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 
