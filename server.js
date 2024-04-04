@@ -1,4 +1,6 @@
 import express from "express";
+import { createServer } from "http";
+import { Server } from "socket.io";
 import indexRouter from "./src/router/index.router.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
@@ -8,8 +10,15 @@ import morgan from "morgan";
 const server = express();
 const port = 8080;
 const ready = () => console.log("Server ready on port: " + port + ".");
+const nodeServer = createServer(server);
+const socketServer = new Server(nodeServer);
 
 server.listen(port, ready);
+socketServer.on("connection", (socketDataHandShake) => {
+  console.log(socketDataHandShake);
+});
+
+// falta el tema de la clase 9 para avanzar...
 
 // Middlewares
 server.use(express.urlencoded({ extended: true }));
