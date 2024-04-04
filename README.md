@@ -34,3 +34,4 @@ Cada usuario tiene las propiedades:
 - password (obligatorio)
 - role (rol de usuario, por defecto 0)
 
+.
