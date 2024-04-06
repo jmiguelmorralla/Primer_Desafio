@@ -1,0 +1,9 @@
+{{#if product.id}}
+  <h4 class="mb-4">Details of product {{product.id}}</h4>
+  <p>{{product.title}}</p>
+  <p>{{product.category}}</p>
+  {{!-- <img src="{{product.photo}}" alt=""> --}}
+{{else}}
+  <p>Product not found.</p>
+
+{{/if}}
