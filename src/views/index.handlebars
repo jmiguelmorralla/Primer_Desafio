@@ -1,2 +1,30 @@
+<section>
+    <article>
 
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit tempore autem iste voluptatum ea dolorem laborum minima veritatis voluptatem, error rem laudantium placeat nostrum, dolores nihil similique laboriosam voluptatibus officiis.</p>
+
+
+    </article>
+
+
+    <article id="users" class="d-flex flex-wrap"></article>
+</section>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on("users", data=> {
+    console.log(data);
+    let template = ``
+    template = data.map(each=>`
+        <div class="card m-3" style="width: 18rem;">
+            <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each.id}">
+            <div class="card-body">
+                <h5 class="card-title">${each.email}</h5>
+            </div>
+        </div>`
+    ).join("")
+    document.querySelector("#users").innerHTML = template
+    })
+    
+
+</script>
