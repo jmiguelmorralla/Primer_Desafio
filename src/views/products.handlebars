@@ -1,5 +1,37 @@
 <h2 class="mb-4">Products</h2>
-{{#each products}}
+{{!-- {{#each products}}
     <a href="/products/{{this.id}}" class="ps-3">{{this.title}}</a>
 
-{{/each}}
+{{/each}} --}}
+
+<section>
+    <article>
+
+
+
+    </article>
+
+
+    <article id="products" class="d-flex flex-wrap"></article>
+</section>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on("products", data=> {
+    console.log(data);
+    let template = ``
+    template = data.map(each=>`
+        <div class="card m-3" style="width: 18rem;">
+            <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each.id}">
+            <div class="card-body">
+                <h5 class="card-title fs-4">${each.title}</h5>
+                <p class="fs-6"> Id product: ${each.id}</p>
+            </div>
+        </div>`
+    ).join("")
+    document.querySelector("#products").innerHTML = template
+    })
+    
+
+</script>

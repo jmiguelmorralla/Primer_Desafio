@@ -1,29 +1,30 @@
+<img class="mb-5 position-relative top-0 start-50 translate-middle-x" src="https://react-js-pf-morralla-juan-miguel.vercel.app/img/logoVitonio.png" alt="Logo Vitonio">
+
+<p class="fs-5 text-center mb-5">¡Bienvenidos a Vitonio, el lugar donde los sueños de la infancia se hacen realidad!
+
+En Vitonio, nos dedicamos con pasión a crear momentos mágicos para los niños y niñas de todas partes. Nos esforzamos por ser más que una simple juguetería; somos un oasis de diversión y creatividad, donde cada juguete está diseñado y elaborado con amor y cuidado artesanal.
+
+¡Únete a la familia Vitonio y descubre un mundo de diversión y fantasía para tus pequeños soñadores!</p>
+
 <section>
-    <article>
-
-
-
-    </article>
-
-
-    <article id="users" class="d-flex flex-wrap"></article>
+    <article id="products" class="d-flex flex-wrap"></article>
 </section>
 
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 <script>
   const socket = io();
-  socket.on("users", data=> {
+  socket.on("products", data=> {
     console.log(data);
     let template = ``
     template = data.map(each=>`
         <div class="card m-3" style="width: 18rem;">
             <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each.id}">
             <div class="card-body">
-                <h5 class="card-title">${each.email}</h5>
+                <h5 class="card-title">${each.title}</h5>
             </div>
         </div>`
     ).join("")
-    document.querySelector("#users").innerHTML = template
+    document.querySelector("#products").innerHTML = template
     })
     
 
