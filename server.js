@@ -2,7 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import indexRouter from "./src/router/index.router.js";
-import socketCb from "./src/router/index.socket.js"
+import socketCb from "./src/router/index.socket.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import morgan from "morgan";
@@ -25,6 +25,7 @@ server.set("views", __dirname + "/src/views");
 
 // Middlewares
 server.use(express.urlencoded({ extended: true }));
+server.use(express.static(__dirname + "/public"));
 server.use(express.json());
 server.use(morgan("dev"));
 
