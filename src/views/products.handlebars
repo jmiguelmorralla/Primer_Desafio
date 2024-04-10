@@ -1,39 +1,35 @@
-<h2 class="mb-4">Products</h2>
-{{!-- {{#each products}}
-    <a href="/products/{{this.id}}" class="ps-3">{{this.title}}</a>
-
-{{/each}} --}}
+<h2 class="mb-4">Productos</h2>
 
 <div class="d-flex">
     <div class="w-50">
         <form>
             <div class="mb-3">
-                <label id="title" class="form-label">Título</label>
-                <input type="text" class="form-control" required>
+                <label class="form-label">Título</label>
+                <input id="title" type="text" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label id="photo" class="form-label">Foto</label>
-                <input type="text" class="form-control">
+                <label class="form-label">Foto</label>
+                <input id="photo" type="text" class="form-control">
             </div>
             <div class="mb-3">
-                <label id="category" class="form-label">Material</label>
-                <input type="text" class="form-control">
+                <label class="form-label">Material</label>
+                <input id="category" type="text" class="form-control">
             </div>
             <div class="mb-3">
-                <label id="price" class="form-label">Precio</label>
-                <input type="text" class="form-control">
+                <label class="form-label">Precio</label>
+                <input id="price" type="text" class="form-control">
             </div>
             <div class="mb-3">
-                <label id="stock" class="form-label">Stock</label>
-                <input type="text" class="form-control">
+                <label class="form-label">Stock</label>
+                <input id="stock" type="text" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary" id="register">Register</button>
+            <button type="submit" class="btn btn-primary" id="newProduct">Crear producto</button>
         </form>
     </div>
     <div id="products" class="d-flex flex-wrap w-50"></div>
-</div>
 
+</div>
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 <script>
   const socket = io();
@@ -51,13 +47,15 @@
     ).join("")
     document.querySelector("#products").innerHTML = template
     })
-    document.querySelector("#register").addEventListener("click", (event)=> {
+    document.querySelector("#newProduct").addEventListener("click", (event)=> {
         const title = document.querySelector("#title").value
         const photo = document.querySelector("#photo").value
         const category = document.querySelector("#category").value
         const price = document.querySelector("#price").value
         const stock = document.querySelector("#stock").value
-        console.log({title, category})
+        console.log({title, photo, category, price, stock})
+        socket.emit("newProduct", {title, photo, category, price, stock})
     })
 
 </script>
+
