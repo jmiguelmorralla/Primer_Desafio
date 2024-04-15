@@ -326,5 +326,29 @@
     "category": "madera",
     "price": "5000",
     "stock": "7"
+  },
+  {
+    "id": "bbbc2007d9744767fa8c490f",
+    "title": "Moto ",
+    "photo": "https://www.lidl.es/media/product/0/0/2/8/3/3/0/motocicleta-retro-de-madera-sin-pedales-zoom.jpg",
+    "category": "madera",
+    "price": "20000",
+    "stock": "10"
+  },
+  {
+    "id": "3a9a65a802e2ee16f8f70af8",
+    "title": "Dinosaurio ",
+    "photo": "https://http2.mlstatic.com/D_NQ_NP_939776-MLA74020885589_012024-O.webp",
+    "category": "tela",
+    "price": "6000",
+    "stock": "30"
+  },
+  {
+    "id": "6f09861843231f9f3f8a5276",
+    "title": "Skate",
+    "photo": "https://acdn.mitiendanube.com/stores/002/268/228/products/d_774796-mla51778469286_092022-o-460c075fb7e458d7e316672151387622-1024-1024.jpg",
+    "category": "madera",
+    "price": "15000",
+    "stock": "10"
   }
 ]
