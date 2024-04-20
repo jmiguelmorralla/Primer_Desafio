@@ -125,7 +125,7 @@ async function testCreate() {
   const productManager = new ProductManager();
 
   await productManager.create({
-    photo: "foto55.jpg",
+    photo: "https://react-js-pf-morralla-juan-miguel.vercel.app/img/balancin.png",
     title: "Balancin",
     category: "madera",
     price: 15000,
@@ -133,7 +133,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "foto7.jpg",
+    photo: "https://react-js-pf-morralla-juan-miguel.vercel.app/img/bloques.png",
     title: "Bloques",
     category: "plastico",
     price: 7000,
@@ -141,6 +141,7 @@ async function testCreate() {
   });
 
   await productManager.create({
+    photo:"https://ofelia.com.ar/images/origin/products/10178_23056_652c948726acd.jpg",
     title: "Casita",
     category: "madera",
     price: 6500,
@@ -148,7 +149,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "luna4.jpg",
+    photo: "https://react-js-pf-morralla-juan-miguel.vercel.app/img/luna.png",
     title: "Luna",
     category: "madera",
     price: 7500,
@@ -156,7 +157,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "arcoiris.jpg",
+    photo: "https://react-js-pf-morralla-juan-miguel.vercel.app/img/arcoiris.png",
     title: "Arcoiris",
     category: "madera",
     price: 7000,
@@ -171,7 +172,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "foto1.jpg",
+    photo: "https://http2.mlstatic.com/D_NQ_NP_840175-MLA48011665500_102021-O.webp",
     title: "Piramide",
     category: "madera",
     price: 9500,
@@ -179,7 +180,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "foto344.jpg",
+    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31WdTStKnXn4-hNsvr39g8Kvi8hXXB6YPDg-bUs_5NQ&s",
     title: "Auto",
     category: "madera",
     price: 9900,
@@ -187,7 +188,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "Titere.jpg",
+    photo: "https://blog.trapitos.com.ar/uploads/2018/10/titere-de-tela.jpg",
     title: "Titere",
     category: "tela",
     price: 4600,
@@ -195,7 +196,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "serpiente.jpg",
+    photo: "https://http2.mlstatic.com/D_NQ_NP_909544-MLA70900713407_082023-O.webp",
     title: "Serpiente",
     category: "tela",
     price: 7000,
@@ -203,7 +204,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "foto5.jpg",
     title: "Tobogan",
     category: "plastico",
     price: 45000,
@@ -211,7 +211,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "fotom.jpg",
+    photo: "https://http2.mlstatic.com/D_NQ_NP_921581-MLA31085377150_062019-O.webp",
     title: "Muneca",
     category: "plastico",
     price: 7200,
@@ -226,7 +226,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "Elefante.jpg",
+    photo: "https://http2.mlstatic.com/D_NQ_NP_710368-MLA28360118944_102018-O.webp",
     title: "Elefante",
     category: "madera",
     price: 8500,
@@ -234,7 +234,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "Tigre.jpg",
+    photo: "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/0a98fabc-23c5-49f2-a418-041524a0b8d0.82dd9ce5243dedceb8847a32504d4816.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
     title: "Tigre",
     category: "madera",
     price: 7000,
@@ -242,6 +242,7 @@ async function testCreate() {
   });
 
   await productManager.create({
+    photo: "https://c8.alamy.com/compes/bxrpjn/barco-de-juguete-azul-de-plastico-bxrpjn.jpg",
     title: "Barco",
     category: "plastico",
     price: 5000,
@@ -249,7 +250,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "foto13244.jpg",
     title: "Bolitas",
     category: "vidrio",
     price: 3500,
@@ -257,7 +257,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "foto34111.jpg",
     title: "Raton",
     category: "tela",
     price: 3000,
@@ -265,7 +264,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "doctor.jpg",
     title: "Kit medico",
     category: "plastico",
     price: 6600,
@@ -273,7 +271,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "animales.jpg",
+    photo: "https://acdn.mitiendanube.com/stores/991/977/products/amimal21-7ae67479bb99aff29616823429214437-1024-1024.png",
     title: "Animalitos",
     category: "plastico",
     price: 4600,
@@ -281,15 +279,13 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy1.jpg",
-    title: "Muneca de trapo",
+    title: "Muñeca de trapo",
     category: "tela",
     price: 7300,
     stock: 50,
   });
 
   await productManager.create({
-    photo: "toy2.jpg",
     title: "Bloques de construccion",
     category: "madera",
     price: 8500,
@@ -297,7 +293,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy3.jpg",
     title: "Carro control remoto",
     category: "plastico",
     price: 6700,
@@ -305,7 +300,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy4.jpg",
     title: "Puzzle 1000 piezas",
     category: "madera",
     price: 9300,
@@ -313,7 +307,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy5.jpg",
+    photo: "https://http2.mlstatic.com/D_NQ_NP_892380-MLA45428905628_042021-O.webp",
     title: "Pelota de futbol",
     category: "plastico",
     price: 5200,
@@ -321,7 +315,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy6.jpg",
     title: "Cocinita de juguete",
     category: "metal",
     price: 17600,
@@ -329,7 +322,7 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy7.jpg",
+    photo: "https://http2.mlstatic.com/D_Q_NP_681873-MLU71108121856_082023-O.webp",
     title: "Avion de juguete",
     category: "plastico",
     price: 5800,
@@ -337,7 +330,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy8.jpg",
     title: "Muneco articulado",
     category: "metal",
     price: 14900,
@@ -345,7 +337,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy9.jpg",
     title: "Juego de te de juguete",
     category: "plastico",
     price: 7300,
@@ -353,7 +344,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy10.jpg",
     title: "Kit ciencia experimentos",
     category: "plastico",
     price: 12700,
@@ -361,7 +351,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy11.jpg",
     title: "Peluche de animal",
     category: "tela",
     price: 9200,
@@ -369,7 +358,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy12.jpg",
     title: "Juego de mesa clasico",
     category: "madera",
     price: 10100,
@@ -377,7 +365,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy13.jpg",
     title: "Robot transformable",
     category: "metal",
     price: 16200,
@@ -385,7 +372,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy14.jpg",
     title: "Tren de juguete",
     category: "metal",
     price: 8700,
@@ -393,7 +379,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy15.jpg",
     title: "Set de plastilina",
     category: "plastico",
     price: 5400,
@@ -401,7 +386,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy16.jpg",
     title: "Pelota de baloncesto",
     category: "plastico",
     price: 7800,
@@ -409,7 +393,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy17.jpg",
     title: "Dinosaurio de juguete",
     category: "plastico",
     price: 6900,
@@ -417,7 +400,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy18.jpg",
     title: "Set de pinturas y pinceles",
     category: "plastico",
     price: 6400,
@@ -425,7 +407,6 @@ async function testCreate() {
   });
 
   await productManager.create({
-    photo: "toy19.jpg",
     title: "Kit construccion vehiculos",
     price: 17800,
   });
@@ -462,6 +443,7 @@ async function testDestroy() {
   console.log(await productManager.destroy());
 }
 
+// testCreate()
 // testRead()
 // testReadOne()
 // testUpdate()

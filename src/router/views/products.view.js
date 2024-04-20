@@ -16,7 +16,7 @@ productsRouter.get("/:pid", async(req, res, next) => {
     try {
         const {pid} = req.params
         const one = await productsManager.readOne(pid)
-        return res.render("details", {product: one})
+        return res.render("productdetails", {product: one})
     } catch (error) {
         return next(error)
     }
