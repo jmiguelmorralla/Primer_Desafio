@@ -1,3 +1,4 @@
+import "dotenv/config.js"
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -8,11 +9,19 @@ import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import morgan from "morgan";
 import __dirname from "./utils.js";
 import { engine } from "express-handlebars";
+import dbConnect from "./src/utils/dbConnect.util.js";
+
+// console.log(process.env)
+// console.log(process.env.MONGO_URI)
 
 // Server
 const server = express();
-const port = 8080;
-const ready = () => console.log("Server ready on port: " + port + ".");
+const port = process.env.PORT || 8080;
+const ready = async () => {
+    console.log("Server ready on port: " + port + ".");
+    await dbConnect()
+};
+
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 

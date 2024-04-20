@@ -1,11 +1,12 @@
 import { Router } from "express";
-import productsManager from "../../data/fs/ProductsManager.fs.js";
+// import productsManager from "../../data/fs/ProductsManager.fs.js";
+import productsManager from "../../data/mongo/ProductsManager.mongo.js";
 
 const productsRouter = Router();
 
 productsRouter.get("/:pid", readOne);
 productsRouter.get("/", read);
-productsRouter.post("/", create);
+productsRouter.post("/", create); 
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
