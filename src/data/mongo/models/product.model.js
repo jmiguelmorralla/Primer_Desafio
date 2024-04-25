@@ -17,7 +17,7 @@ const schema = new Schema(
     },
     price: { type: Number, default: 1 },
     stock: { type: Number, default: 1 },
-    user_id: { type: Types.ObjectId, ref: "users", index: true, required: true}
+    // user_id: { type: Types.ObjectId, ref: "users", index: true, required: true}
   },
   {
     timestamps: true,
