@@ -8,3 +8,4 @@ apiRouter.use("/products", productsRouter);
 apiRouter.use("/users", usersRouter);
 
 export default apiRouter;
+
