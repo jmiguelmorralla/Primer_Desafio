@@ -56,7 +56,7 @@ async function create(req, res, next) {
     const user = await usersManager.create(data);
     return res.json({
       statusCode: 201,
-      message: "User id: " + user.id + " created succesfully.",
+      message: "User id: " + user._id + " created succesfully.",
     });
   } catch (error) {
     return next(error);
@@ -71,7 +71,7 @@ async function update(req, res, next) {
     return res.json({
       statusCode: 200,
       response: user,
-      message: "Updated user ID: " + user.id,
+      message: "Updated user ID: " + user._id,
     });
   } catch (error) {
     return next(error);
@@ -85,7 +85,7 @@ async function destroy(req, res, next) {
     return res.json({
       statusCode: 200,
       response: user,
-      message: "Deleted user ID: " + user.id,
+      message: "Deleted user ID: " + user._id,
     });
   } catch (error) {
     return next(error);

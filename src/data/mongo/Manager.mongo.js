@@ -1,6 +1,6 @@
 class Manager {
   constructor(Model) {
-    this.Model = Model
+    this.Model = Model;
   }
   async create(data) {
     try {
@@ -10,9 +10,9 @@ class Manager {
       throw error;
     }
   }
-  async read(cat) {
+  async read(filter) {
     try {
-      const all = await this.Model.find();
+      const all = await this.Model.find(filter);
       return all;
     } catch (error) {
       throw error;
@@ -43,6 +43,5 @@ class Manager {
     }
   }
 }
-
 
 export default Manager;
