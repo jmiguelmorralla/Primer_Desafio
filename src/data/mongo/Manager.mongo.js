@@ -12,7 +12,7 @@ class Manager {
   }
   async read(filter) {
     try {
-      const all = await this.Model.find(filter);
+      const all = await this.Model.find(filter).lean();
       return all;
     } catch (error) {
       throw error;
@@ -20,7 +20,7 @@ class Manager {
   }
   async readOne(id) {
     try {
-      const one = await this.Model.findById(id);
+      const one = await this.Model.findById(id).lean();
       return one;
     } catch (error) {
       throw error;
@@ -28,7 +28,7 @@ class Manager {
   }
   async update(id, data) {
     try {
-      const one = await this.Model.findByIdAndUpdate(id, data, { new: true });
+      const one = await this.Model.findByIdAndUpdate(id, data, { new: true }).lean();
       return one;
     } catch (error) {
       throw error;
@@ -36,7 +36,7 @@ class Manager {
   }
   async destroy(id) {
     try {
-      const one = await this.Model.findByIdAndDelete(id);
+      const one = await this.Model.findByIdAndDelete(id).lean();
       return one;
     } catch (error) {
       throw error;

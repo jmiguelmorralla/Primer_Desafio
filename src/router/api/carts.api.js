@@ -31,7 +31,7 @@ async function read (req, res, next) {
       if (all.length > 0) {
         return res.json({
           statusCode: 200,
-          message: "Read carts",
+          message: "Read.",
           response: all,
         });
       }

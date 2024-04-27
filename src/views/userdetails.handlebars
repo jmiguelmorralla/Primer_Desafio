@@ -1,8 +1,8 @@
-{{#if user.id}}
-  <h4 class="mb-4">Details of user {{user.id}}</h4>
+{{#if user._id}}
+  <h4 class="mb-4">Details of user {{user._id}}</h4>
   <p>E-mail: {{user.email}}</p>
   <p>Role: {{user.role}}</p>
-  {{!-- <img src="{{user.photo}}" alt=""> --}}
+  <img src="{{user.photo}}" alt="">
 {{else}}
   <p>User not found.</p>
 

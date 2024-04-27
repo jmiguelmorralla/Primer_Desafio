@@ -5,7 +5,7 @@ import usersRouter from "./users.view.js";
 
 const viewsRouter = Router();
 
-viewsRouter.use("/products/real", productsRouter);
+viewsRouter.use("/products", productsRouter);
 viewsRouter.use("/users/register", usersRouter);
 viewsRouter.use("/users", usersRouter);
 viewsRouter.get("/", (req, res, next) => {
