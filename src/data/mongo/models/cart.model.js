@@ -1,13 +1,12 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
+
 
 const collection = "carts";
 const schema = new Schema(
   {
-    user_id: { type: String, required: true },
+    user_id: { type: Types.ObjectId, required: true, index: true, ref: "users" },
     product_id: {
-      type: String,
-      required: true,
-    },
+      type: Types.ObjectId, required: true, index: true, ref: "products" },
     quantity: { type: Number, required: true, default: 1 },
     state: {
       type: String,
@@ -18,7 +17,20 @@ const schema = new Schema(
   {
     timestamps: true,
   }
+
 );
+
+schema.pre("find", function() {
+  this.populate("user_id")
+  // agregar selectores
+
+})
+
+schema.pre("find", function() {
+  this.populate("product_id")
+  // agregar selectores
+
+})
 
 const Cart = model(collection, schema);
 
