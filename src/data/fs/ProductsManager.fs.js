@@ -434,13 +434,13 @@ async function testReadOne() {
 async function testUpdate() {
   const productManager = new ProductManager();
   await productManager.update("");
-  console.log(await productManager.update("20912fd7680981dd0ee12351"));
+
 }
 
 async function testDestroy() {
   const productManager = new ProductManager();
-  await productManager.destroy("");
-  console.log(await productManager.destroy());
+  await productManager.destroy("e6cfba69d2ecebf2dea0c662");
+
 }
 
 // testCreate()

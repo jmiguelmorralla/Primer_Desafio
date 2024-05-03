@@ -13,6 +13,24 @@ usersRouter.get("/", async (req, res, next) => {
       return next(error);
     }
   });
+
+  usersRouter.get("/login", async (req, res, next) => {
+    try {
+      const users=await usersManager.read()
+      return res.render("login", {users});
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  usersRouter.get("/register", async (req, res, next) => {
+    try {
+      const users=await usersManager.read()
+      return res.render("register", {users});
+    } catch (error) {
+      return next(error);
+    }
+  });
   
 usersRouter.get("/:uid", async(req, res, next) => {
       try {
