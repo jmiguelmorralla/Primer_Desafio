@@ -13,7 +13,7 @@
     "photo": "https://react-js-pf-morralla-juan-miguel.vercel.app/img/bloques.png",
     "category": "plastico",
     "price": 7000,
-    "stock": 36
+    "stock": 5
   },
   {
     "id": "140320c4f30c4f7067ac9bb8",
@@ -30,14 +30,6 @@
     "category": "madera",
     "price": 7500,
     "stock": 39
-  },
-  {
-    "id": "e6cfba69d2ecebf2dea0c662",
-    "title": "Arcoiris",
-    "photo": "https://react-js-pf-morralla-juan-miguel.vercel.app/img/arcoiris.png",
-    "category": "madera",
-    "price": 7000,
-    "stock": 36
   },
   {
     "id": "124aeceb44cd288b972ed67e",
@@ -304,14 +296,6 @@
     "stock": 30
   },
   {
-    "id": "fef518b3f9316f025eebff40",
-    "title": "Kit construccion vehiculos",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
-    "category": "plastico",
-    "price": 17800,
-    "stock": 1
-  },
-  {
     "id": "2a55339a31ff856fbb8f6df0",
     "title": "Instrumento musical juguete",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",
@@ -326,14 +310,6 @@
     "category": "madera",
     "price": "5000",
     "stock": "7"
-  },
-  {
-    "id": "bbbc2007d9744767fa8c490f",
-    "title": "Moto ",
-    "photo": "https://www.lidl.es/media/product/0/0/2/8/3/3/0/motocicleta-retro-de-madera-sin-pedales-zoom.jpg",
-    "category": "madera",
-    "price": "20000",
-    "stock": "10"
   },
   {
     "id": "3a9a65a802e2ee16f8f70af8",

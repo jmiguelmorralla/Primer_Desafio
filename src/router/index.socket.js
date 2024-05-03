@@ -1,5 +1,7 @@
-import usersManager from "../data/fs/UsersManager.fs.js";
-import productsManager from "../data/fs/ProductsManager.fs.js";
+// import usersManager from "../data/fs/UsersManager.fs.js";
+// import productsManager from "../data/fs/ProductsManager.fs.js";
+import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
+import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
 
 export default async (socket) => {
   console.log("client socket " + socket.id);

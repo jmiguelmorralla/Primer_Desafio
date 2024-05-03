@@ -1,8 +1,8 @@
-# DESAFÍO ENTREGABLE: Websockets + Handlebars
+# DESAFÍO ENTREGABLE OPCIONAL: Práctica de integración sobre tu ecommerce
 
-En esta entrega se implementan:
+En esta entrega opcional se implementan:
 
-Gestores de “productos” y de “usuarios” para guardar los datos en la memoria (memory) y en archivos (files).
+Gestores de “productos” y de “usuarios” para guardar los datos en la memoria (memory), en archivos (files) y en MongoDB
     - create(data) para crear un recurso
     - read() para leer todos los recursos
     - readOne(id) para leer este recurso
@@ -15,7 +15,7 @@ Se crearon todos los endpoints requeridos para la entrega tanto para usuarios co
 
 Se manejan errores de todas las rutas con errorHandler y rutas que no existen con pathHandler y el registro de las solicitudes con Morgan.
 
-Se definieron cuatro usuarios y cuarenta productos.
+Se definieron cuatro usuarios, cuarenta productos y dos carritos.
 
 Cada producto tiene las propiedades:
     - id (código identificador de 12bytes y hexadecimal)
@@ -32,11 +32,18 @@ Cada usuario tiene las propiedades:
     - password (obligatorio)
     - role (rol de usuario, por defecto 0)
 
+Cada carrito tiene las propiedades: 
+    - id de carrito
+    - user_id (para referenciar el usuario que agregó el producto a su carrito)
+    - product_id (para referenciar el producto que se agregó al carrito)
+    - quantity: de tipo númerico y obligatorio para indicar cuantas unidades se enviaron al carrito
+    - state: para identificar el estado de la compra
+
 Sockets:
-    - “connection” para configurar los dos puntos de conexión (sockets) del back y del front:
-        -socketServer.on() en el socket del servidor
-        -script de socket y ejecutar io() para generar el socket del cliente
-    - Emisión “products”: en el socket del servidor (back), llamar al manager de productos de FS para enviar un objeto con todos los productos hacia el socket del cliente.
-    - Recepción “products”: en el socket del cliente de la vista /real de handlebars, con js renderizar dinámicamente y en tiempo real los productos recibidos.
-    - Emisión “new product”: en el socket del cliente de la vista /real de handlebars, con js, capturar los datos del formulario y luego emitir el producto para guardarlo en el json del back.
-    - Recepción “new product”: en el socket del servidor, guardar el producto en el archivo y luego emitir todos los productos para actualizar en tiempo real la vista /real
+    Quedan implementados de la entrega anterior.
+
+Vistas
+    - localhost:8080/ “landing page” con barra de navegación, logo y todos los productos disponibles (no es necesario el filtro).
+    - localhost:8080/products/:pid debe mostrar el detalle del producto y un botón para agregar al carrito.
+    - localhost:8080/users/register debe mostrar la página con un formulario para registrar un usuario.
+    - localhost:8080/users/:uid debe mostrar la página con los datos del usuario.

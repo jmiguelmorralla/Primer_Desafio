@@ -1,6 +1,6 @@
 import { Router } from "express";
 // import productsManager from "../../data/fs/ProductsManager.fs.js";
-import productsManager from "../../data/mongo/ProductsManager.mongo.js";
+import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 
 const productsRouter = Router();
 
@@ -56,7 +56,7 @@ async function create(req, res, next) {
     const product = await productsManager.create(data);
     return res.json({
       statusCode: 201,
-      message: "Product id: " + product.id + " created succesfully.",
+      message: "Product id: " + product._id + " created succesfully.",
     });
   } catch (error) {
     return next(error);
@@ -71,7 +71,7 @@ async function update(req, res, next) {
     return res.json({
       statusCode: 200,
       response: product,
-      message: "Updated product ID: " + product.id,
+      message: "Updated product ID: " + product._id,
     });
   } catch (error) {
     return next(error);
@@ -85,7 +85,7 @@ async function destroy(req, res, next) {
     return res.json({
       statusCode: 200,
       response: product,
-      message: "Deleted product ID: " + product.id,
+      message: "Deleted product ID: " + product._id,
     });
   } catch (error) {
     return next(error);
