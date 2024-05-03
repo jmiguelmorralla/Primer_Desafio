@@ -2,6 +2,7 @@
 // import productsManager from "../data/fs/ProductsManager.fs.js";
 import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
+import cartsManager from "../data/mongo/managers/CartsManager.mongo.js";
 
 export default async (socket) => {
   console.log("client socket " + socket.id);

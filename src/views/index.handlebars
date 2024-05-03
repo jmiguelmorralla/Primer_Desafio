@@ -17,12 +17,15 @@ En Vitonio, nos dedicamos con pasión a crear momentos mágicos para los niños 
     console.log(data);
     let template = ``
     template = data.map(each=>`
-        <div class="card m-3" style="width: 18rem;">
+        <a class="navbar-brand" href="/products/${each._id}">
+        <div class="card m-3" style="width: 18rem; background: #ffedbc">
             <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each.id}">
             <div class="card-body">
                 <h5 class="card-title">${each.title}</h5>
             </div>
-        </div>`
+            <button type="button" class="btn btn-warning">Detalles</button>
+        </div>
+        </a>`
     ).join("")
     document.querySelector("#products").innerHTML = template
     })

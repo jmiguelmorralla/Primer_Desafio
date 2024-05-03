@@ -37,12 +37,15 @@
     console.log(data);
     let template = ``
     template = data.map(each=>`
-        <div class="card m-3" style="width: 18rem;">
+        <div class="card m-3" style="width: 18rem; background: #ffedbc">
+        <a class="navbar-brand" href="/products/${each._id}">
             <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each._id}">
             <div class="card-body">
                 <h5 class="card-title fs-4">${each.title}</h5>
                 <p class="fs-6"> Stock: ${each.stock}</p>
             </div>
+        </a>
+        <button type="button" class="btn btn-warning">Agregar al carrito</button>
         </div>`
     ).join("")
     document.querySelector("#products").innerHTML = template
