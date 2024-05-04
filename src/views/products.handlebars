@@ -56,8 +56,9 @@
         const category = document.querySelector("#category").value
         const price = document.querySelector("#price").value
         const stock = document.querySelector("#stock").value
-        console.log({title, photo, category, price, stock})
-        socket.emit("newProduct", {title, photo, category, price, stock})
+        const user_id = "662d7c0a0232c7d0cc1a95b6"
+        console.log({title, photo, category, price, stock, user_id})
+        socket.emit("newProduct", {title, photo, category, price, stock, user_id})
     })
 
 </script>

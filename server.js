@@ -11,10 +11,6 @@ import __dirname from "./utils.js";
 import { engine } from "express-handlebars";
 import dbConnect from "./src/utils/dbConnect.util.js";
 
-// console.log(process.env)
-// console.log(process.env.MONGO_URI)
-
-// Server
 const server = express();
 const port = process.env.PORT || 8080;
 const ready = async () => {

@@ -8,6 +8,7 @@ export default async (socket) => {
   console.log("client socket " + socket.id);
   socket.emit("users", await usersManager.read());
   socket.emit("products", await productsManager.read());
+  // socket.emit("carts", await cartsManager.read());
   socket.on("newProduct", async data=>{
     await productsManager.create(data)
     socket.emit("products", await productsManager.read());
