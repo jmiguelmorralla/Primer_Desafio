@@ -13,4 +13,8 @@ export default async (socket) => {
     await productsManager.create(data)
     socket.emit("products", await productsManager.read());
   })
+  socket.on("newUser", async data=>{
+    await usersManager.create(data)
+    socket.emit("users", await usersManager.read());
+  })
 };
