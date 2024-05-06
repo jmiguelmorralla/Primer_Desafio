@@ -23,7 +23,7 @@
                 <label class="form-label">Stock</label>
                 <input id="stock" type="text" class="form-control">
             </div>
-            <p>A los fines de la entrega, y se encuentra "hardcodeado el usuario "662d7c0a0232c7d0cc1a95b6" como creador de este producto.</p>
+
             <button type="submit" class="btn btn-primary" id="newProduct">Crear producto</button>
         </form>
     </div>
@@ -36,7 +36,7 @@
   socket.on("products", data=> {
     console.log(data);
     let template = ``
-    template = data.map(each=>`
+    template = data.docs.map(each=>`
         <div class="card m-3" style="width: 18rem; background: #ffedbc">
         <a class="navbar-brand" href="/products/${each._id}">
             <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each._id}">
@@ -56,7 +56,7 @@
         const category = document.querySelector("#category").value
         const price = document.querySelector("#price").value
         const stock = document.querySelector("#stock").value
-        const user_id = "662d7c0a0232c7d0cc1a95b6"
+        const user_id = "662d7c0a0232c7d0cc1a9555"
         console.log({title, photo, category, price, stock, user_id})
         socket.emit("newProduct", {title, photo, category, price, stock, user_id})
     })

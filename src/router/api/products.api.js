@@ -5,10 +5,10 @@ import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js"
 const productsRouter = Router();
 
 // ENDPOINTS
-productsRouter.get("/:pid", readOne);
 productsRouter.get("/", read);
 productsRouter.get("/paginate", paginate);
 productsRouter.post("/", create);
+productsRouter.get("/:pid", readOne);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
@@ -58,13 +58,13 @@ async function paginate(req, res, next) {
     const filter = {};
     const opts = {};
     if (req.query.limit) {
-      opts.limit = req.query.limit
+      opts.limit = req.query.limit;
     }
     if (req.query.page) {
-      opts.page = req.query.page
+      opts.page = req.query.page;
     }
     if (req.query.user_id) {
-      filter.user_id = req.query.user_id
+      filter.user_id = req.query.user_id;
     }
 
     const all = await productsManager.paginate({ filter, opts });
@@ -77,7 +77,7 @@ async function paginate(req, res, next) {
         limit: all.limit,
         prevPage: all.prevPage,
         nextPage: all.nextPage,
-      }
+      },
     });
   } catch (error) {
     return next(error);

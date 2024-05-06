@@ -7,28 +7,20 @@ En Vitonio, nos dedicamos con pasión a crear momentos mágicos para los niños 
 ¡Únete a la familia Vitonio y descubre un mundo de diversión y fantasía para tus pequeños soñadores!</p>
 
 <section>
-    <article id="products" class="d-flex flex-wrap"></article>
-</section>
-
-<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-<script>
-  const socket = io();
-  socket.on("products", data=> {
-    console.log(data);
-    let template = ``
-    template = data.map(each=>`
-        <a class="navbar-brand" href="/products/${each._id}">
+    <article id="products" class="d-flex flex-wrap">
+        {{#each products}}
+          <a class="navbar-brand" href="/products/{{this._id}}">
         <div class="card m-3" style="width: 18rem; background: #ffedbc">
-            <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each.id}">
+            <img style="height: 12rem" src="{{this.photo}}" class="card-img-top" alt="{{this.id}}">
             <div class="card-body">
-                <h5 class="card-title">${each.title}</h5>
+                <h5 class="card-title">{{this.title}}</h5>
             </div>
             <button type="button" class="btn btn-warning">Detalles</button>
         </div>
-        </a>`
-    ).join("")
-    document.querySelector("#products").innerHTML = template
-    })
-    
+        </a>
+        {{/each}}
+    </article>
 
-</script>
+</section>
+
+
