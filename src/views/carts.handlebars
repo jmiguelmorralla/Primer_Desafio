@@ -1,16 +1,57 @@
 <h2 class="text-center">Cart</h2>
 
 <section>
-    <article id="carts" class="d-flex flex-wrap">
-        {{#each carts}}
-            <div class="card m-3" style="width: 18rem; background: #ffedbc">
-                <div> {{this._id}} </div>
-                <div> {{this.user_id}} </div>
-                <div> {{this.product_id}} </div>
-                <div> {{this.quantity}} </div>
-                <div> {{this.state}} </div>
-                <button type="button" class="btn btn-warning">Delete</button>
-            </div>
-        {{/each}}
-    </article>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>User Id</th>
+                <th>User Email</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each carts}}
+            <tr>
+                <td><img src="{{this.product_id.photo}}" alt="Product Photo" style="max-width: 100px; max-height: 100px;"></td>
+                <td>{{this.user_id._id}}</td>
+                <td>{{this.user_id.email}}</td>
+                <td>{{this.product_id.title}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.product_id.price}}</td>
+
+                <td>{{this.state}}</td>
+                <td><button type="button" class="btn btn-warning" onclick="deleteCartItem('{{this._id}}')">Delete</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </section>
+
+<script>
+    function deleteCartItem(cartId) {
+        fetch('/deleteCartItem', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                cartId: cartId
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Actualizar la interfaz de usuario o realizar otras acciones después de eliminar el elemento
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+    }
+</script>

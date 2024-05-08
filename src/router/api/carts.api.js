@@ -5,9 +5,9 @@ const cartsRouter = Router();
 
 cartsRouter.post("/", create);
 cartsRouter.get("/", read);
-cartsRouter.get("/:uid", readOne);
-cartsRouter.put("/:uid", update);
-cartsRouter.delete("/:uid", destroy);
+cartsRouter.get("/:cid", readOne);
+cartsRouter.put("/:cid", update);
+cartsRouter.delete("/:cid", destroy);
 
 async function create (req, res, next) {
   try {
@@ -44,12 +44,10 @@ async function read (req, res, next) {
   }
 };
 
-
-
 async function readOne(req, res, next) {
     try {
-      const { uid } = req.params;
-      const one = await cartsManager.readOne(uid);
+      const { cid } = req.params;
+      const one = await cartsManager.readOne(cid);
       if (one) {
         return res.status(200).json({
           response: one,

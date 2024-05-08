@@ -7,7 +7,6 @@ const cartsRouter = Router();
 cartsRouter.get("/", async (req, res, next) => {
   try {
     const carts=await cartsManager.read()
-    console.log(carts)
     return res.render("carts", {carts});
   } catch (error) {
     return next(error);
@@ -18,7 +17,6 @@ cartsRouter.get("/:cid", async(req, res, next) => {
     try {
         const {cid} = req.params
         const carts = await cartsManager.readOne(cid)
-        console.log(carts)
         return res.render("carts", {carts: carts})
     } catch (error) {
         return next(error)
