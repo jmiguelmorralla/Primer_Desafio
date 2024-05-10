@@ -29,6 +29,7 @@ const schema = new Schema(
 );
 
 schema.pre("find", function () {
+
   this.populate("user_id", "email photo");
 });
 

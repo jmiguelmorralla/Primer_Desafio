@@ -16,7 +16,7 @@ cartsRouter.get("/", async (req, res, next) => {
 
 cartsRouter.get("/:cid", async(req, res, next) => {
     try {
-        const {cid} = req.params
+
         const carts = await cartsManager.read(cid)
         return res.render("carts", {carts: carts})
     } catch (error) {
