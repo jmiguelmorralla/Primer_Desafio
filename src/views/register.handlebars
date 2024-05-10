@@ -1,24 +1,76 @@
+<h2 class="mb-4">Registro de nuevo usuario</h2>
 
-<h2 class="text-center" style="margin-bottom: 20%">Registro de Nuevo Usuario</h2>
-<div class="position-absolute start-50 translate-middle text-center" style="max-width: 40 rem margin-bottom: 20%">
+<div class="d-flex">
+  <div class="w-50">
     <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-        </div>
-            <div class="mb-3">
-            <label class="form-label">URL Photo</label>
-            <input id="photo" type="text" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" required>
-        </div>
-            <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Repeat Password</label>
-            <input type="password" class="form-control" id="exampleInputRepeatPassword1" required>
-        </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">URL Photo</label>
+        <input id="photo" type="text" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Repeat Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputRepeatPassword1"
+          required
+        />
+      </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
+      <button type="submit" class="btn btn-primary" id="newUser">Register</button>
     </form>
+  </div>
+  <div id="users" class="d-flex flex-wrap w-50"></div>
+
 </div>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on("users", data=> {
+    console.log(data);
+    let template = ``
+    template = data.map(each=>`
+        <div class="card m-3" style="width: 18rem; background: #ffedbc">
+        <a class="navbar-brand" href="/users/${each._id}">
+            <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each._id}">
+            <div class="card-body">
+                <p class="card-title fs-6">${each.email}</p>
+
+            </div>
+        <button type="button" class="btn btn-warning" style="width: 18rem" >Detalles de usuario</button>
+        </a>
+        </div>`
+    ).join("")
+
+    document.querySelector("#users").innerHTML = template
+    })
+    document.querySelector("#newUser").addEventListener("click", (event)=> {
+        const photo = document.querySelector("#photo").value
+        const email = document.querySelector("#email").value
+        const password = document.querySelector("#password").value
+        console.log({photo, email, password})
+        socket.emit("newUser", {photo, email, password})
+    })
+
+</script>
+

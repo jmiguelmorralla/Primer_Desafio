@@ -1,8 +1,7 @@
-# DESAFÍO ENTREGABLE OPCIONAL: Práctica de integración sobre tu ecommerce
+# Challenge 2
+En esta entrega se implementan:
 
-En esta entrega opcional se implementan:
-
-Gestores de “productos” y de “usuarios” para guardar los datos en la memoria (memory), en archivos (files) y en MongoDB
+Gestores de “productos”, “usuarios” y "carts" para guardar los datos en la memoria (memory), en archivos (files) y en MongoDB
     - create(data) para crear un recurso
     - read() para leer todos los recursos
     - readOne(id) para leer este recurso
@@ -47,3 +46,5 @@ Vistas
     - localhost:8080/products/:pid debe mostrar el detalle del producto y un botón para agregar al carrito.
     - localhost:8080/users/register debe mostrar la página con un formulario para registrar un usuario.
     - localhost:8080/users/:uid debe mostrar la página con los datos del usuario.
+
+No se contó con el tiempo suficiente por problemas personales para terminar la implementación de "carts".

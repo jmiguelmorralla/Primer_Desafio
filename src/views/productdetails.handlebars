@@ -1,10 +1,18 @@
 {{#if product.id}}
-  <h4 class="mb-4">Details of product {{product.id}}</h4>
-  <p>{{product.title}}</p>
-  <p>{{product.category}}</p>
-  <img src="{{product.photo}}" alt="">
-  <button type="button" class="btn btn-warning">Agregar al carrito</button>
-
+  <div class="card p-3  flex-wrap" style="width: 25rem; background: #ffedbc">
+    <h4 class="mb-4">Details of product</h4>
+    <div class="d-flex">
+      <div class="mb-3">
+        <h5 class="mb-4">{{product.title}}</h5>
+        <p>Producto fabricado de {{product.category}} de excelente calidad.</p>
+        <img src="{{product.photo}}" alt="" style="max-width: 18rem;">
+      </div>
+    </div>
+    <button type="button" class="btn btn-warning">Agregar al carrito</button>
+  </div>
+  <a href="/products">
+  <button type="button" class="btn btn-success mt-4">Volver</button>
+  </a>
 {{else}}
   <p>Product not found.</p>
 
