@@ -6,8 +6,8 @@ const cartsRouter = Router();
 
 cartsRouter.get("/", async (req, res, next) => {
   try {
-    const carts=await cartsManager.read()
-    console.log(carts)
+    const {user_id} = req.query
+    const carts=await cartsManager.read({user_id})
     return res.render("carts", {carts});
   } catch (error) {
     return next(error);
@@ -16,9 +16,8 @@ cartsRouter.get("/", async (req, res, next) => {
 
 cartsRouter.get("/:cid", async(req, res, next) => {
     try {
-        const {cid} = req.params
-        const carts = await cartsManager.readOne(cid)
-        console.log(carts)
+
+        const carts = await cartsManager.read(cid)
         return res.render("carts", {carts: carts})
     } catch (error) {
         return next(error)

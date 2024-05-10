@@ -29,11 +29,12 @@ const schema = new Schema(
 );
 
 schema.pre("find", function () {
-  this.populate("user_id", "email photo -_id");
+
+  this.populate("user_id", "email photo");
 });
 
 schema.pre("find", function () {
-  this.populate("product_id");
+  this.populate("product_id", "title photo quantity price");
 });
 
 schema.plugin(mongoosePaginate);
