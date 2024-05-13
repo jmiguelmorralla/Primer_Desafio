@@ -1,11 +1,11 @@
 import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 
-async function isValidEmail(req, res, next) {
+async function isValidUser(req, res, next) {
   try {
     const { email } = req.body;
     const one = await usersManager.readByEmail(email);
-    if (one) {
-      const error = new Error("Bad auth from register.");
+    if (!one) {
+      const error = new Error("Bad auth from Login.");
       error.statusCode = 401;
       throw error;
     }
@@ -15,4 +15,4 @@ async function isValidEmail(req, res, next) {
   }
 }
 
-export default isValidEmail;
+export default isValidUser;

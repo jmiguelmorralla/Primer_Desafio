@@ -1,15 +1,15 @@
 import { Router } from "express";
 import usersManager from "../../data/mongo/managers/UsersManager.mongo.js";
-// import isValidData from "../../middlewares/isValidData.mid.js";
+import isValidData from "../../middlewares/isValidData.mid.js";
 import isValidEmail from "../../middlewares/isValidEmail.mid.js";
-// import isValidUser from "../../middlewares/isValidUser.mid.js";
-// import isValidPassword from "../../middlewares/isValidPasword.mid.js";
+import isValidUser from "../../middlewares/isValidUser.mid.js";
+import isValidPassword from "../../middlewares/isValidPassword.mid.js";
 
 const sessionsRouter = Router();
 
 sessionsRouter.post(
   "/register",
-//   isValidData,
+  isValidData,
   isValidEmail,
   async (req, res, next) => {
     try {
@@ -23,8 +23,8 @@ sessionsRouter.post(
 );
 sessionsRouter.post(
   "/login",
-//   isValidUser,
-//   isValidPassword,
+  isValidUser,
+  isValidPassword,
   async (req, res, next) => {
     try {
       const { email } = req.body;
@@ -34,7 +34,7 @@ sessionsRouter.post(
       req.session.role = one.role;
       req.session.photo = one.photo;
       req.session.user_id = one._id;
-      return res.json({ statusCode: 200, message: "Logged in!" });
+      return res.json({ statusCode: 200, message: "Logged in." });
     } catch (error) {
       return next(error);
     }
