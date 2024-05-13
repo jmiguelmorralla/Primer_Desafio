@@ -24,13 +24,13 @@ const socketServer = new Server(nodeServer);
 socketServer.on("connection", socketCb);
 nodeServer.listen(port, ready);
 
-server.engine("handlebars", engine());
-server.set("view engine", "handlebars");
-server.set("views", __dirname + "/src/views");
+// server.engine("handlebars", engine());
+// server.set("view engine", "handlebars");
+// server.set("views", __dirname + "/src/views");
 
 // Middlewares
 server.use(express.urlencoded({ extended: true }));
-// server.use(express.static(__dirname + "/public"));
+server.use(express.static(__dirname + "/public"));
 server.use(express.json());
 server.use(morgan("dev"));
 

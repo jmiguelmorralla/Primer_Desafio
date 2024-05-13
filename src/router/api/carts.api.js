@@ -5,9 +5,9 @@ const cartsRouter = Router();
 
 cartsRouter.post("/", create);
 cartsRouter.get("/", read);
-cartsRouter.get("/:uid", readOne);
-cartsRouter.put("/:uid", update);
-cartsRouter.delete("/:uid", destroy);
+cartsRouter.get("/:cid", readOne);
+cartsRouter.put("/:cid", update);
+cartsRouter.delete("/:cid", destroy);
 
 async function create (req, res, next) {
   try {
