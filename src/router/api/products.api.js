@@ -1,13 +1,14 @@
 import { Router } from "express";
 // import productsManager from "../../data/fs/ProductsManager.fs.js";
 import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
+import isValidAdmin from "../../middlewares/isValidAdmin.mid.js";
 
 const productsRouter = Router();
 
 // ENDPOINTS
 productsRouter.get("/", read);
 productsRouter.get("/paginate", paginate);
-productsRouter.post("/", create);
+productsRouter.post("/", isValidAdmin, create);
 productsRouter.get("/:pid", readOne);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);

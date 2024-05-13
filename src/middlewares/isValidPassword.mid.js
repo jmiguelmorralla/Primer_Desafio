@@ -7,7 +7,7 @@ async function isValidPassword(req, res, next) {
     if (one.password === password) {
       return next();
     }
-    const error = new Error("Invalid credentials");
+    const error = new Error("Bad auth.");
     error.statusCode = 401;
     throw error;
   } catch (error) {
