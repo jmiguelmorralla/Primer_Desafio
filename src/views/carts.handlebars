@@ -34,25 +34,3 @@
     </table>
 </section>
 
-<script>
-    function deleteCartItem(cartId) {
-        fetch('/deleteCartItem', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                cartId: cartId
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            // Actualizar la interfaz de usuario o realizar otras acciones después de eliminar el elemento
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
-    }
-</script>
