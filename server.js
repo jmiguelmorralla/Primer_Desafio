@@ -37,12 +37,13 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(express.json());
 server.use(morgan("dev"));
-server.use(cookieParser());
+server.use(cookieParser(process.env.SECRET));
 server.use(
   session({
     secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
+    cookie: { maxAge: 60*60*1000},
     store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
   })
 );

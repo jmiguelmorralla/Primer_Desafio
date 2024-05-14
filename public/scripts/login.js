@@ -30,7 +30,7 @@ document.querySelector("#login").addEventListener("click", async () => {
   return Swal.fire({
     title: response.message,
     icon: "error",
-    timer: 5000,
+    timer: 3000,
     timerProgressBar: true,
     confirmButtonColor: "#ff3b3c",
   });
