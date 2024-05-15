@@ -1,16 +1,16 @@
-import options from "./data/layoutOptions.js";
+// import options from "./data/layoutOptions.js";
 
-import {
-  hideSearch,
-  printNavBar,
-  printFooter,
-  printIcons,
-} from "./modules/printLayout.js";
+// import {
+//   hideSearch,
+//   printNavBar,
+//   printFooter,
+//   printIcons,
+// } from "./modules/printLayout.js";
 
-hideSearch();
-printIcons();
-printNavBar(options, "navbar");
-printFooter(options, "footer");
+// hideSearch();
+// printIcons();
+// printNavBar(options, "navbar");
+// printFooter(options, "footer");
 
 document.querySelector("#register").addEventListener("click", async () => {
   const data = {
@@ -37,11 +37,5 @@ document.querySelector("#register").addEventListener("click", async () => {
     //si no vamos a re-dirigir hay que re-setear el formulario!
     //return location.replace("/login.html");
   }
-  return Swal.fire({
-    title: response.message,
-    icon: "error",
-    timer: 5000,
-    timerProgressBar: true,
-    confirmButtonColor: "#ff3b3c",
-  });
+  return alert(response.message)
 });

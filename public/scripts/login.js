@@ -1,16 +1,16 @@
-import options from "./data/layoutOptions.js";
+// import options from "./data/layoutOptions.js";
 
-import {
-  hideSearch,
-  printNavBar,
-  printFooter,
-  printIcons,
-} from "./modules/printLayout.js";
+// import {
+//   hideSearch,
+//   printNavBar,
+//   printFooter,
+//   printIcons,
+// } from "./modules/printLayout.js";
 
-hideSearch();
-printIcons();
-printNavBar(options, "navbar");
-printFooter(options, "footer");
+// hideSearch();
+// printIcons();
+// printNavBar(options, "navbar");
+// printFooter(options, "footer");
 
 document.querySelector("#login").addEventListener("click", async () => {
   const data = {
@@ -27,11 +27,6 @@ document.querySelector("#login").addEventListener("click", async () => {
   if (response.statusCode === 200) {
     return location.replace("/");
   }
-  return Swal.fire({
-    title: response.message,
-    icon: "error",
-    timer: 3000,
-    timerProgressBar: true,
-    confirmButtonColor: "#ff3b3c",
-  });
+  
+  return alert("Bad auth.")
 });
