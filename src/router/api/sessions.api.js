@@ -61,7 +61,7 @@ sessionsRouter.get("/online", async (req, res, next) => {
 sessionsRouter.post("/signout", (req, res, next) => {
   try {
     req.session.destroy();
-    return res.json({ statusCode: 200, message: "Signed out!" });
+    return res.json({ statusCode: 200, message: "Signed out." });
   } catch (error) {
     return next(error);
   }

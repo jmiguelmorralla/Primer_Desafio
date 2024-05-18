@@ -1,3 +1,21 @@
+// import { printNavBar, printFooter, printIcons } from "./modules/printLayout.js";
+
+// printIcons();
+
+// // fetch("./scripts/data/layoutOptions.json")
+// //   .then((res) => {
+// //     //console.log(res);
+// //     return res.json();
+// //   })
+// //   .then((res) => {
+// //     //console.log(res);
+// //     printNavBar(res, "navbar");
+// //     printFooter(res, "footer");
+// //   })
+// //   .catch((err) => console.log(err));
+
+// // fetchProducts("products","")
+
 const template = (each) => `
 <div class="card m-3" style="width: 18rem; background: #ffedbc">
   <a class="navbar-brand" href="/pages/details.html?_id=${each._id}">
