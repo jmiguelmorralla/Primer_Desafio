@@ -1,21 +1,3 @@
-// import { printNavBar, printFooter, printIcons } from "./modules/printLayout.js";
-
-// printIcons();
-
-// // fetch("./scripts/data/layoutOptions.json")
-// //   .then((res) => {
-// //     //console.log(res);
-// //     return res.json();
-// //   })
-// //   .then((res) => {
-// //     //console.log(res);
-// //     printNavBar(res, "navbar");
-// //     printFooter(res, "footer");
-// //   })
-// //   .catch((err) => console.log(err));
-
-// // fetchProducts("products","")
-
 const template = (each) => `
 <div class="card m-3" style="width: 18rem; background: #ffedbc">
   <a class="navbar-brand" href="/pages/details.html?_id=${each._id}">
@@ -31,9 +13,20 @@ fetch("/api/products/paginate")
   .then((res) => res.json())
   .then((res) => {
     console.log(res);
-    const products = res.response
     // no me está encontrando el response.docs... es como un error en la paginación
+    const products = res.response
     document.querySelector("#products").innerHTML = products.map(each=>template(each))
+
+    // no logro hacer que el response me tome la página 2... la encuentro por params pero siempre el response me trae los primeros 10...
+
+    const query = location.search
+    const params = new URLSearchParams(query)
+    const page = params.get("page")
+    console.log(page)
+    const prev = document.querySelector("#prev")
+    res.info.prevPage && (prev.innerHTML = `<a href='index.html?page=${res.info.prevPage}'> PREVIOUS </a>`)
+    const next = document.querySelector("#next")
+    res.info.nextPage && (next.innerHTML = `<a href='index.html?page=${res.info.nextPage}'> NEXT </a>`)
 
   })
   .catch((err) => console.log(err));

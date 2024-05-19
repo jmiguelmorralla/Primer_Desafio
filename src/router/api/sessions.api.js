@@ -15,7 +15,7 @@ sessionsRouter.post(
     try {
       const data = req.body;
       await usersManager.create(data);
-      return res.json({ statusCode: 201, message: "Registered!" });
+      return res.json({ statusCode: 201, message: "Registered." });
     } catch (error) {
       return next(error);
     }
