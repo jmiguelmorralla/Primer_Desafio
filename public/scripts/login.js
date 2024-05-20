@@ -1,17 +1,3 @@
-// import options from "./data/layoutOptions.js";
-
-// import {
-//   hideSearch,
-//   printNavBar,
-//   printFooter,
-//   printIcons,
-// } from "./modules/printLayout.js";
-
-// hideSearch();
-// printIcons();
-// printNavBar(options, "navbar");
-// printFooter(options, "footer");
-
 document.querySelector("#login").addEventListener("click", async () => {
   const data = {
     email: document.querySelector("#email").value,
@@ -22,7 +8,9 @@ document.querySelector("#login").addEventListener("click", async () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
+
   let response = await fetch("/api/sessions/login", opts);
+  
   response = await response.json();
   console.log(response)
   if (response.statusCode === 200) {
