@@ -12,7 +12,6 @@ document.querySelector("#register").addEventListener("click", async (event) => {
     body: JSON.stringify(data),
   };
 
-  
   let response = await fetch("/api/sessions/register", opts);
 
   response = await response.json();

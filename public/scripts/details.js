@@ -1,7 +1,11 @@
-const queries = new URL(location.href)
-const pid = queries.searchParams.get("_id"),
+const queries = location.search
+const pid = new URLSearchParams (queries)
 
-// arreglar, el profesor en el after no logró hacerlo funcionaruu
+
+// const queries = new URL(location.href)
+// const pid = queries.searchParams.get("_id"),
+
+// // arreglar, el profesor en el after no logró hacerlo funcionaruu
 
 
 fetch ("/api/products/"+pid)

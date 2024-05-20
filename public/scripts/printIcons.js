@@ -6,7 +6,7 @@ async function printIcons() {
     if (online.statusCode === 200) {
       template = `
       <div class="navbar-nav" id="buttonsOnLine">
-      <a class="nav-link active" aria-current="page" href="/pages/details.html">Products</a>
+      <a class="nav-link active" aria-current="page" href="/pages/products.html">Products</a>
       <a class="nav-link" href="/pages/carts.html">Cart</a>
       <button class="btn btn-danger" id="signout">Logout</button>
         </div>`
@@ -27,7 +27,7 @@ async function printIcons() {
 else {
     template = `   
       <div class="navbar-nav" id="buttonsOffLine">
-      <a class="nav-link" href="/pages/details.html">Products</a>
+      <a class="nav-link" href="/pages/products.html">Products</a>
       <a class="nav-link" href="/pages/register.html">Register</a>
       <a class="nav-link" href="/pages/login.html">Login</a>
       </div>`
