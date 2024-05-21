@@ -15,7 +15,7 @@ sessionsRouter.post(
     try {
       const data = req.body;
       await usersManager.create(data);
-      return res.json({ statusCode: 201, message: "Registered!" });
+      return res.json({ statusCode: 201, message: "Registered." });
     } catch (error) {
       return next(error);
     }
@@ -34,7 +34,8 @@ sessionsRouter.post(
       req.session.role = one.role;
       req.session.photo = one.photo;
       req.session.user_id = one._id;
-      return res.json({ statusCode: 200, message: "Logged in." });
+      return res.json({ statusCode: 200, message: "Logged in."});
+
     } catch (error) {
       return next(error);
     }
@@ -60,7 +61,7 @@ sessionsRouter.get("/online", async (req, res, next) => {
 sessionsRouter.post("/signout", (req, res, next) => {
   try {
     req.session.destroy();
-    return res.json({ statusCode: 200, message: "Signed out!" });
+    return res.json({ statusCode: 200, message: "Signed out." });
   } catch (error) {
     return next(error);
   }

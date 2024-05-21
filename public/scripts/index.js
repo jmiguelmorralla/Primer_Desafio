@@ -1,3 +1,7 @@
+const query = location.search
+const params = new URLSearchParams(query)
+const page = params.get("page")
+
 const template = (each) => `
 <div class="card m-3" style="width: 18rem; background: #ffedbc">
   <a class="navbar-brand" href="/pages/details.html?_id=${each._id}">
@@ -9,22 +13,27 @@ const template = (each) => `
     <button type="button" class="btn btn-warning" onclick="addToCart('${each._id}')">Add to cart</button>
     </div>`;
 
-fetch("/api/products/paginate")
+
+fetch(`/api/products/paginate?page=${page || 1}`)
   .then((res) => res.json())
   .then((res) => {
     console.log(res);
     const products = res.response
-    // no me está encontrando el response.docs... es como un error en la paginación
     document.querySelector("#products").innerHTML = products.map(each=>template(each))
-
+    
+    console.log(page)
+    const prev = document.querySelector("#prev")
+    res.info.prevPage && (prev.innerHTML = `<a href='index.html?page=${res.info.prevPage}'> PREVIOUS </a>`)
+    const next = document.querySelector("#next")
+    res.info.nextPage && (next.innerHTML = `<a href='index.html?page=${res.info.nextPage}'> NEXT </a>`)
+    
   })
   .catch((err) => console.log(err));
-
-
+  
+  
   async function addToCart (pid) {
     try {
       const each = {
-        user_id: "662d7c0a0232c7d0cc1a95b6",
         product_id: pid,
         quantity: 1
       }
@@ -34,11 +43,12 @@ fetch("/api/products/paginate")
         body: JSON.stringify(each),
         headers: {"Content-Type": "application/json"}
       }
-
+      
       let response = await fetch (url, opts)
       response =await response.json()
       console.log(response)
     } catch (error) {
       console.log(error)
     }
+    
   }

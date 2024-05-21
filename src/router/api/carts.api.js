@@ -12,6 +12,9 @@ cartsRouter.delete("/:cid", destroy);
 async function create (req, res, next) {
   try {
     const data = req.body;
+    data.user_id = req.session.user_id
+    // product_id
+    // quantity
     const one = await cartsManager.create(data);
     return res.json({
       statusCode: 201,
@@ -25,7 +28,7 @@ async function create (req, res, next) {
 
 async function read (req, res, next) {
   try {
-    const { user_id } = req.query;
+    const { user_id } = req.session;
     if (user_id) {
       const all = await cartsManager.read({ user_id });
       if (all.length > 0) {
