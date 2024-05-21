@@ -8,7 +8,7 @@ const template = (each) => `
     <button type="button" class="btn btn-warning" onclick="destroy('${each._id}')">Delete</button>
     </div>`;
 
-fetch("/api/carts?user_id=662d7c0a0232c7d0cc1a95b6")
+fetch("/api/carts")
   .then((res) => res.json())
   .then((res) => {
     const products = res.response;
