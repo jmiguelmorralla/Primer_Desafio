@@ -4,6 +4,7 @@ import isValidData from "../../middlewares/isValidData.mid.js";
 import isValidEmail from "../../middlewares/isValidEmail.mid.js";
 import isValidUser from "../../middlewares/isValidUser.mid.js";
 import isValidPassword from "../../middlewares/isValidPassword.mid.js";
+import createHashPassword from "../../middlewares/createHashPassword.mid.js";
 
 const sessionsRouter = Router();
 
@@ -11,6 +12,7 @@ sessionsRouter.post(
   "/register",
   isValidData,
   isValidEmail,
+  createHashPassword,
   async (req, res, next) => {
     try {
       const data = req.body;
