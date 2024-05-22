@@ -1,4 +1,4 @@
-# Sprint_6
+# Sprint_7
 En esta entrega se pretenden implementar:
 ENDPOINTS
 POST /api/sessions/register con los middlewares isValidEmail y isValidData
