@@ -1,13 +1,11 @@
 # Sprint_7
 En esta entrega se pretenden implementar:
 ENDPOINTS
-POST /api/sessions/register con los middlewares isValidEmail y isValidData
-POST /api/sessions/login con los middlewares isValidUser y isValidPass 
-POST /api/sessions/online
-POST /api/sessions/signout para cerrar sesión y limpiar la session
+POST /api/sessions/register similar al create de un usuario, implementando estrategia de passport y hasheando la contraseña
+POST /api/sessions/login para iniciar sesión, implementando estrategia de passport y comparando la contraseña
+POST /api/sessions para ver los datos del usuario online (condicionando la barra de navegación), implementando la estrategia de passport.
 
-Funcionando el register y el login de las vistas, también index, products y  cart. Falta corregir el paginate y el detail de cada producto que no logro hacer funcionar.
 
 Se envían vistas en la PR y demás evidencia. 
 
-No se contó con el tiempo suficiente por problemas personales y familiares para terminar la implementación de la renderización automática o dinámica del carrito según el usuario, quedó hardcodeado un usuario.
+Se continúa en la implementación de JWT
