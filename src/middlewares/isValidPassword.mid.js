@@ -5,7 +5,7 @@ async function isValidPassword(req, res, next) {
   try {
     const { email, password } = req.body;
     const one = await usersManager.readByEmail(email);
-    const verify = verifyHash(password, one.password)
+    const verify = verifyHash(password, one.password);
     if (verify) {
       return next();
     }

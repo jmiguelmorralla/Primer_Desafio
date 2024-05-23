@@ -29,7 +29,7 @@ sessionsRouter.post(
   "/login",
   // isValidUser,
   // isValidPassword,
-  passport.authenticate("login", {session: false}),
+  passport.authenticate("login", { session: false }),
   async (req, res, next) => {
     try {
       return res.json({ statusCode: 200, message: "Logged in." });
@@ -61,7 +61,7 @@ sessionsRouter.post("/signout", (req, res, next) => {
       req.session.destroy();
       return res.json({ statusCode: 200, message: "Signed out." });
     }
-    const error= new Error("Invalid credentials from signout...")
+    const error = new Error("Invalid credentials from signout...");
     error.statusCode = 401;
     throw error;
   } catch (error) {
