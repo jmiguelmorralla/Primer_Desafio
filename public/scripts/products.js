@@ -24,10 +24,10 @@ fetch(`/api/products/paginate?page=${page || 1}`)
     console.log(page);
     const prev = document.querySelector("#prev");
     res.info.prevPage &&
-      (prev.innerHTML = `<a href='index.html?page=${res.info.prevPage}'> PREV </a>`);
+      (prev.innerHTML = `<a href='products.html?page=${res.info.prevPage}'> PREV </a>`);
     const next = document.querySelector("#next");
     res.info.nextPage &&
-      (next.innerHTML = `<a href='index.html?page=${res.info.nextPage}'> NEXT </a>`);
+      (next.innerHTML = `<a href='products.html?page=${res.info.nextPage}'> NEXT </a>`);
   })
   .catch((err) => console.log(err));
 
