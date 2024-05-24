@@ -16,6 +16,7 @@ const template = (each) => `
 fetch(`/api/products/paginate?page=${page || 1}`)
   .then((res) => res.json())
   .then((res) => {
+
     const products = res.response;
     document.querySelector("#products").innerHTML = products.map((each) =>
       template(each)
@@ -24,7 +25,9 @@ fetch(`/api/products/paginate?page=${page || 1}`)
     console.log(page);
     const prev = document.querySelector("#prev");
     res.info.prevPage &&
+
       (prev.innerHTML = `<a href='index.html?page=${res.info.prevPage}'> PREV </a>`);
+
     const next = document.querySelector("#next");
     res.info.nextPage &&
       (next.innerHTML = `<a href='index.html?page=${res.info.nextPage}'> NEXT </a>`);

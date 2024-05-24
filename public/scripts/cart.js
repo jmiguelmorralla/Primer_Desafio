@@ -28,6 +28,7 @@ fetch("/api/carts")
   .then((res) => res.json())
   .then((res) => {
     const products = res.response;
+
     if (products) {
       document.querySelector("#productsOnCart").innerHTML = products
         .map((each) => template(each))
@@ -36,6 +37,7 @@ fetch("/api/carts")
       else { 
         document.querySelector("#productsOnCart").innerHTML = empty
       }
+
 
   })
   .catch((err) => console.log(err));
