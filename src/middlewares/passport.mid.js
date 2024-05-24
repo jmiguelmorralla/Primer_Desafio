@@ -4,6 +4,7 @@ import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
 
+
 passport.use(
   "register",
   new LocalStrategy(
@@ -59,6 +60,7 @@ passport.use(
           };
           const token = createToken(data);
           one.token = token;
+
           return done(null, one);
         }
         const error = new Error("Invalid credentials");

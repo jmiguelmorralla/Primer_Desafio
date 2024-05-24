@@ -37,6 +37,7 @@ sessionsRouter.post(
         message: "Logged in.",
         token: req.user.token,
       });
+
     } catch (error) {
       return next(error); 
     }
