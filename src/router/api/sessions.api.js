@@ -38,7 +38,7 @@ sessionsRouter.post(
         token: req.user.token,
       });
     } catch (error) {
-      return next(error);
+      return next(error); 
     }
   }
 );
