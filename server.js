@@ -33,6 +33,7 @@ nodeServer.listen(port, ready);
 // server.set("views", __dirname + "/src/views");
 
 // Middlewares
+
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(express.json());
@@ -43,7 +44,7 @@ server.use(
     secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
-    cookie: { maxAge: 60*60*1000},
+    cookie: { maxAge: 60 * 60 * 1000 },
     store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
   })
 );

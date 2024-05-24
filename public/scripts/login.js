@@ -10,12 +10,12 @@ document.querySelector("#login").addEventListener("click", async () => {
   };
 
   let response = await fetch("/api/sessions/login", opts);
-  
+
   response = await response.json();
-  console.log(response)
+  console.log(response);
   if (response.statusCode === 200) {
-    console.log(response.statusCode)
+    console.log(response.statusCode);
     return location.replace("/");
   }
-    return alert("Bad auth.")
+  return alert("Bad auth.");
 });
