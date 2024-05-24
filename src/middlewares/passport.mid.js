@@ -2,6 +2,7 @@ import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
+import { createToken } from "../utils/token.util.js";
 
 passport.use(
   "register",
@@ -44,11 +45,20 @@ passport.use(
         }
         const verify = verifyHash(password, one.password);
         if (verify) {
-          req.session.email = email;
-          req.session.online = true;
-          req.session.role = one.role;
-          req.session.photo = one.photo;
-          req.session.user_id = one._id;
+          // req.session.email = email;
+          // req.session.online = true;
+          // req.session.role = one.role;
+          // req.session.photo = one.photo;
+          // req.session.user_id = one._id;
+          const data = {
+            email,
+            role: one.role,
+            photo: one.photo,
+            _id: one._id,
+            online: true,
+          };
+          const token = createToken(data);
+          one.token = token;
           return done(null, one);
         }
         const error = new Error("Invalid credentials");
