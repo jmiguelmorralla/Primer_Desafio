@@ -17,8 +17,8 @@ sessionsRouter.post(
   passport.authenticate("register", { session: false }),
   async (req, res, next) => {
     try {
-      const data = req.body;
-      await usersManager.create(data);
+      // const data = req.body;
+      // await usersManager.create(data);
       return res.json({ statusCode: 201, message: "Registered." });
     } catch (error) {
       return next(error);
