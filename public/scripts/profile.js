@@ -1,15 +1,6 @@
-// fetch("/api/sessions")
-//   .then((res) => res.json())
-//   .then((res) => {
-//     const user = res.response;
-//     document.querySelector("#profile").innerHTML = user
-//     console.log(res);
-//   })
-//   .catch((err) => console.log(err));
-
 fetch("/api/sessions")
   .then((res) => {
-    if (!res.ok) { // Verifica si la respuesta es exitosa
+    if (!res.ok) { 
       throw new Error(`Error HTTP: ${res.status}`);
     }
     return res.json();
