@@ -1,21 +1,44 @@
 const template = (each) => `
-<div class="card m-3" style="width: 18rem; background: #ffedbc">
-     <div class="card-body">
-        <h5 class="card-title">${each.product_id.title}</h5>
-        <p class="card-title">${each.product_id.price}</p>
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td class="col-3"><img src="${each.product_id.photo}" class="img-fluid" style="max-width: 100px; height: auto;" alt="Foto del producto"></td>
+            <td class="col-6">${each.product_id.title}</td>
+            <td class="col-1">${each.product_id.price}</td>
+            <td class="col-1">${each.quantity}</td>
+            <td class="col-1"><button type="button" class="btn btn-warning btn-sm" onclick="destroy('${each._id}')">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    </a>
-    <button type="button" class="btn btn-warning" onclick="destroy('${each._id}')">Delete</button>
-    </div>`;
+  </div>
+</div>
 
+`;
+
+const empty = `
+<div>
+<h2>Agrega productos a tu carrito.</h2>
+<a class="btn btn-warning m-3" href="/pages/products.html">Ir a productos</a>
+</div>`
 fetch("/api/carts")
   .then((res) => res.json())
   .then((res) => {
     const products = res.response;
-    document.querySelector("#productsOnCart").innerHTML = products
-      .map((each) => template(each))
-      .join("");
-    console.log(res.response);
+
+    if (products) {
+      document.querySelector("#productsOnCart").innerHTML = products
+        .map((each) => template(each))
+        .join("");
+      }
+      else { 
+        document.querySelector("#productsOnCart").innerHTML = empty
+      }
+
+
   })
   .catch((err) => console.log(err));
 

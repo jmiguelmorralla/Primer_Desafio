@@ -1,13 +1,15 @@
 async function printIcons() {
   let template = "";
-  let online = await fetch("/api/sessions/online");
+
+  let online = await fetch("/api/sessions");
   online = await online.json();
-  console.log(online);
+
   if (online.statusCode === 200) {
     template = `
       <div class="navbar-nav" id="buttonsOnLine">
-      <a class="nav-link active" aria-current="page" href="/pages/products.html">Products</a>
+      <a class="nav-link" href="/pages/products.html">Products</a>
       <a class="nav-link" href="/pages/carts.html">Cart</a>
+      <a class="nav-link" href="/pages/profile.html">Profile</a>
       <button class="btn btn-danger" id="signout">Logout</button>
         </div>`;
     document.querySelector("#navbar").innerHTML = template;
