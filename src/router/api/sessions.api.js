@@ -6,6 +6,8 @@ import usersManager from "../../data/mongo/managers/UsersManager.mongo.js";
 // import isValidPassword from "../../middlewares/isValidPassword.mid.js";
 // import createHashPassword from "../../middlewares/createHashPassword.mid.js";
 import passport from "../../middlewares/passport.mid.js";
+import isAuth from "../../middlewares/isAuth.mid.js";
+import passportCb from "../../middlewares/passportCb.mid.js";
 
 const sessionsRouter = Router();
 
@@ -14,7 +16,8 @@ sessionsRouter.post(
   // isValidData,
   // isValidEmail,
   // createHashPassword,
-  passport.authenticate("register", { session: false }),
+  // passport.authenticate("register", isAuth, { session: false }),
+  passportCb("register"),
   async (req, res, next) => {
     try {
       // const data = req.body;
@@ -29,35 +32,44 @@ sessionsRouter.post(
   "/login",
   // isValidUser,
   // isValidPassword,
-  passport.authenticate("login", { session: false }),
+  // passport.authenticate("login", isAuth, { session: false }),
+  passportCb("login"),
   async (req, res, next) => {
     try {
-      return res.json({ statusCode: 200, message: "Logged in." });
+      return res.cookie("token", req.user.token, { signedCookie: true }).json({
+        statusCode: 200,
+        message: "Logged in.",
+        // token: req.user.token,
+      });
     } catch (error) {
       return next(error);
     }
   }
 );
-sessionsRouter.get("/", async (req, res, next) => {
-  try {
-    if (req.session.online) {
+sessionsRouter.get(
+  "/online",
+  // passport.authenticate("jwt", { session: false }),
+  passportCb("jwt"),
+  async (req, res, next) => {
+    try {
+      if (req.user.online) {
+        return res.json({
+          statusCode: 200,
+          message: "Is online!",
+          user_id: req.session.user_id,
+        });
+      }
       return res.json({
-        statusCode: 200,
-        message: "Is online!",
-        user_id: req.session.user_id,
-        user_email: req.session.email,
-        user_photo: req.session.photo
+        statusCode: 401,
+        message: "Bad auth!",
       });
+    } catch (error) {
+      return next(error);
     }
-    return res.json({
-      statusCode: 401,
-      message: "Bad auth!",
-    });
-  } catch (error) {
-    return next(error);
   }
-});
+);
 sessionsRouter.post("/signout", (req, res, next) => {
+  console.log(req.session.email)
   try {
     if (req.session.email) {
       req.session.destroy();

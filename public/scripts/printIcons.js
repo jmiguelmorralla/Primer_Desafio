@@ -1,9 +1,8 @@
 async function printIcons() {
   let template = "";
 
-  let online = await fetch("/api/sessions");
+  let online = await fetch("/api/sessions/online");
   online = await online.json();
-
   if (online.statusCode === 200) {
     template = `
       <div class="navbar-nav" id="buttonsOnLine">
