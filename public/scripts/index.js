@@ -22,7 +22,6 @@ fetch(`/api/products/paginate?page=${page || 1}`)
       template(each)
     );
 
-    console.log(page);
     const prev = document.querySelector("#prev");
     res.info.prevPage &&
 

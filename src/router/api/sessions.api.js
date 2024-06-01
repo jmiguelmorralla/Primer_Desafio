@@ -56,7 +56,7 @@ sessionsRouter.get(
         return res.json({
           statusCode: 200,
           message: "Is online!",
-          user_id: req.session.user_id,
+          user_id: req.user.user_id,
         });
       }
       return res.json({
@@ -68,10 +68,11 @@ sessionsRouter.get(
     }
   }
 );
-sessionsRouter.post("/signout", (req, res, next) => {
-  console.log(req.session.email)
+sessionsRouter.post("/signout", passportCb("jwt"),(req, res, next) => {
+  console.log(req.user.email)
+  console.log(req.session)
   try {
-    if (req.session.email) {
+    if (req.user.email) {
       req.session.destroy();
       return res.json({ statusCode: 200, message: "Signed out." });
     }
