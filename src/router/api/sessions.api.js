@@ -14,6 +14,7 @@ class SessionsRouter extends CustomRouter {
   init() {
     this.create(
       "/register",
+      ["PUBLIC"],
       // isValidData,
       // isValidEmail,
       // createHashPassword,
@@ -31,6 +32,7 @@ class SessionsRouter extends CustomRouter {
     );
     this.create(
       "/login",
+      ["PUBLIC"],
       // isValidUser,
       // isValidPassword,
       // passport.authenticate("login", isAuth, { session: false }),
@@ -51,6 +53,7 @@ class SessionsRouter extends CustomRouter {
     );
     this.read(
       "/online",
+      ["USER", "ADMIN"],
       // passport.authenticate("jwt", { session: false }),
       passportCb("jwt"),
       async (req, res, next) => {
@@ -59,7 +62,7 @@ class SessionsRouter extends CustomRouter {
             return res.json({
               statusCode: 200,
               message: "Is online!",
-              user_id: req.user.user_id,
+              user_id: req.session.user_id,
             });
           }
           return res.json({
@@ -71,7 +74,7 @@ class SessionsRouter extends CustomRouter {
         }
       }
     );
-    this.create("/signout", passportCb("jwt"), (req, res, next) => {
+    this.create("/signout",  ["USER", "ADMIN"], passportCb("jwt"), (req, res, next) => {
       console.log(req.user.email);
       console.log(req.session);
       try {

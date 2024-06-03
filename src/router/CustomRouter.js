@@ -28,13 +28,14 @@ class CustomRouter {
     res.message201 = (message) => res.json({ statusCode: 201, message });
     res.error400 = (message) => res.json({ statusCode: 400, message });
     res.error401 = () =>
-      res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
+      res.json({ statusCode: 401, message: "Bad auth from policies!" });
     res.error403 = () =>
-      res.json({ statusCode: 403, message: "Forbidden from poliecies!" });
+      res.json({ statusCode: 403, message: "Forbidden from policies!" });
     res.error404 = () =>
       res.json({ statusCode: 404, message: "Not found docs" });
     return next();
   };
+
   policies = (policies) => async (req, res, next) => {
     if (policies.includes("PUBLIC")) return next();
     else {
@@ -49,7 +50,7 @@ class CustomRouter {
             (policies.includes("ADMIN") && role === 1)
           ) {
             const user = await usersManager.readByEmail(email);
-            //proteger contraseña del usuario!!!
+          // contraseña del usuario??? proteger?
             req.user = user;
             return next();
           } else return res.error403();
