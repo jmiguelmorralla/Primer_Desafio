@@ -20,6 +20,8 @@ class CustomRouter {
       }
     });
   }
+
+
   response = (req, res, next) => {
     res.message200 = (message) => res.json({ statusCode: 200, message });
     res.response200 = (response) => res.json({ statusCode: 200, response });
@@ -60,7 +62,7 @@ class CustomRouter {
       }
     }
   };
-  //create("/products", isValidAdmin, isText, create)
+
   create(path, arrayOfPolicies, ...callbacks) {
     this.router.post(
       path,

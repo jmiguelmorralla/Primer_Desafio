@@ -18,6 +18,8 @@ class ProductsRouter extends CustomRouter {
 
 const productsRouter = new ProductsRouter();
 
+export default productsRouter.getRouter()
+
 // FUNCIONES PARA LOS ENDPOINTS
 async function readOne(req, res, next) {
   try {
@@ -148,4 +150,4 @@ async function destroy(req, res, next) {
   }
 }
 
-export default this;
+

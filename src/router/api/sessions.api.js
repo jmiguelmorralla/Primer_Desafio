@@ -41,11 +41,12 @@ class SessionsRouter extends CustomRouter {
         try {
           return res
             .cookie("token", req.user.token, { signedCookie: true })
-            .json({
-              statusCode: 200,
-              message: "Logged in.",
-              // token: req.user.token,
-            });
+            // .json({
+            //   statusCode: 200,
+            //   message: "Logged in.",
+            //   // token: req.user.token,
+            // });
+            .message200("Logged in!");
         } catch (error) {
           return next(error);
         }
@@ -76,7 +77,6 @@ class SessionsRouter extends CustomRouter {
     );
     this.create("/signout",  ["USER", "ADMIN"], passportCb("jwt"), (req, res, next) => {
       console.log(req.user.email);
-      console.log(req.session);
       try {
         if (req.user.email) {
           req.session.destroy();

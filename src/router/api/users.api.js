@@ -5,11 +5,11 @@ import usersManager from "../../data/mongo/managers/UsersManager.mongo.js";
 
 class UsersRouter extends CustomRouter {
   init() {
-    this.read("/:uid", readOne);
-    this.read("/", read);
-    this.create("/", create);
-    this.update("/:uid", update);
-    this.destroy("/:uid", destroy);
+    this.read("/:uid", ["ADMIN"], readOne);
+    this.read("/", ["ADMIN"], read);
+    this.create("/", ["USER", "ADMIN"], create);
+    this.update("/:uid", ["ADMIN"], update);
+    this.destroy("/:uid", ["ADMIN"], destroy);
   }
 }
 
