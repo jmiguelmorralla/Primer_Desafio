@@ -1,20 +1,21 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
+// import { Router } from "express";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
-import passportCb from "../../middlewares/passportCb.mid.js";
 
-const cartsRouter = Router();
-
-cartsRouter.post("/", passportCb("jwt"), create);
-cartsRouter.get("/", passportCb("jwt"), read);
-cartsRouter.get("/:cid", passportCb("jwt"), readOne);
-cartsRouter.put("/:cid", passportCb("jwt"), update);
-cartsRouter.delete("/:cid", passportCb("jwt") ,destroy);
+class CartsRouter extends CustomRouter {
+  init() {
+    this.create("/", create);
+    this.read("/", read);
+    this.read("/:cid", readOne);
+    this.update("/:cid", update);
+    this.destroy("/:cid", destroy);
+  }
+}
 
 async function create(req, res, next) {
   try {
     const data = req.body;
-    data.user_id = req.user.user_id;
-    console.log(data)
+    data.user_id = req.session.user_id;
     // product_id
     // quantity
     const one = await cartsManager.create(data);
@@ -30,7 +31,7 @@ async function create(req, res, next) {
 
 async function read(req, res, next) {
   try {
-    const { user_id } = req.user;
+    const { user_id } = req.session;
     if (user_id) {
       const all = await cartsManager.read({ user_id });
       if (all.length > 0) {
@@ -96,4 +97,7 @@ async function destroy(req, res, next) {
     return next(error);
   }
 }
-export default cartsRouter;
+
+const cartsRouter = new CartsRouter();
+
+export default cartsRouter.getRouter();

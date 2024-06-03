@@ -1,17 +1,23 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
+// import { Router } from "express";
 // import productsManager from "../../data/fs/ProductsManager.fs.js";
 import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 import isValidAdmin from "../../middlewares/isValidAdmin.mid.js";
 
-const productsRouter = Router();
-
+class ProductsRouter extends CustomRouter {
+init() {
 // ENDPOINTS
-productsRouter.get("/", read);
-productsRouter.get("/paginate", paginate);
-productsRouter.post("/", isValidAdmin, create);
-productsRouter.get("/:pid", readOne);
-productsRouter.put("/:pid", update);
-productsRouter.delete("/:pid", destroy);
+this.read("/", read);
+this.read("/paginate", paginate);
+this.read("/:pid", readOne);
+this.create("/", isValidAdmin, create);
+this.update("/:pid", update);
+this.destroy("/:pid", destroy);
+}
+}
+
+const productsRouter = new ProductsRouter();
+
 
 // FUNCIONES PARA LOS ENDPOINTS
 async function readOne(req, res, next) {
@@ -127,4 +133,4 @@ async function destroy(req, res, next) {
   }
 }
 
-export default productsRouter;
+export default this;

@@ -1,10 +1,12 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
+// import { Router } from "express";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 import { Types } from "mongoose";
 
-const ticketsRouter = Router();
+class TicketsRouter extends CustomRouter {
+  init () {
 
-ticketsRouter.get("/:uid", async (req, res, next) => {
+this.read("/:uid", async (req, res, next) => {
   try {
     const { uid } = req.params;
     const ticket = await cartsManager.aggregate([
@@ -49,5 +51,7 @@ ticketsRouter.get("/:uid", async (req, res, next) => {
     return next(error);
   }
 });
+  }}
+const ticketsRouter = new TicketsRouter();
 
-export default ticketsRouter;
+export default ticketsRouter.getRouter();
