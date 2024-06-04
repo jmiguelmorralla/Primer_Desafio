@@ -21,6 +21,8 @@ fetch(`/api/products/paginate?page=${page || 1}`)
       template(each)
     );
 
+
+
     const prev = document.querySelector("#prev");
     res.info.prevPage &&
       (prev.innerHTML = `<a href='products.html?page=${res.info.prevPage}'> PREV </a>`);

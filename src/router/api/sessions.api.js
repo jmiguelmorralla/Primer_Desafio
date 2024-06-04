@@ -87,6 +87,7 @@ class SessionsRouter extends CustomRouter {
       } catch (error) {
         return next(error);
       }
+
     });
   }
 }

@@ -1,6 +1,8 @@
+
 fetch("/api/sessions/online")
   .then((res) => {
     if (!res.ok) { 
+
       throw new Error(`Error HTTP: ${res.status}`);
     }
     return res.json();
