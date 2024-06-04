@@ -76,7 +76,6 @@ class SessionsRouter extends CustomRouter {
       }
     );
     this.create("/signout",  ["USER", "ADMIN"], passportCb("jwt"), (req, res, next) => {
-      console.log(req.user.email);
       try {
         if (req.user.email) {
           req.session.destroy();
