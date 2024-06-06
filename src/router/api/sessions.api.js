@@ -75,12 +75,12 @@ class SessionsRouter extends CustomRouter {
         }
       }
     );
-    this.create("/signout",  ["USER", "ADMIN"], passportCb("jwt"), (req, res, next) => {
+    this.create("/signout",  ["USER", "ADMIN", "PUBLIC"], passportCb("jwt"), (req, res, next) => {
       try {
+        console.log(req.user.email)
+ 
         if (req.user.email) {
-          req.session.destroy();
-          return res.json({ statusCode: 200, message: "Signed out." });
-        }
+        return res.clearCookie("token").json({ statusCode:200, message: "Signed out." })};
         const error = new Error("Invalid credentials from signout...");
         error.statusCode = 401;
         throw error;
