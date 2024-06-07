@@ -63,7 +63,9 @@ class SessionsRouter extends CustomRouter {
             return res.json({
               statusCode: 200,
               message: "Is online!",
-              user_id: req.session.user_id,
+              user_id: req.user._id,
+              email: req.user.email,
+              photo: req.user.photo
             });
           }
           return res.json({

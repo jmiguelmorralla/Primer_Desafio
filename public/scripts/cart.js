@@ -24,11 +24,12 @@ const empty = `
 <h2>Agrega productos a tu carrito.</h2>
 <a class="btn btn-warning m-3" href="/pages/products.html">Ir a productos</a>
 </div>`
+
 fetch("/api/carts")
   .then((res) => res.json())
   .then((res) => {
     const products = res.response;
-
+  
     if (products) {
       document.querySelector("#productsOnCart").innerHTML = products
         .map((each) => template(each))

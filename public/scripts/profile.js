@@ -8,11 +8,12 @@ fetch("/api/sessions/online")
     return res.json();
   })
   .then((data) => {
+
     const profile = document.querySelector("#profile");
     if (profile) {
-      const userEmail = data.user_email || "No disponible";
+      const userEmail = data.email || "No disponible";
       const userId = data.user_id || "No disponible";
-      const userPhoto = data.user_photo || "";
+      const userPhoto = data.photo || "";
 
       const user = `
       <div class="card m-3" style="width: 18rem; background: #ffedbc">

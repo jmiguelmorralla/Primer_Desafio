@@ -2,6 +2,7 @@ const query = location.search;
 const params = new URLSearchParams(query);
 const page = params.get("page");
 
+
 const template = (each) => `
 <div class="card m-3" style="width: 18rem; background: #ffedbc">
   <a class="navbar-brand" href="/pages/details.html?_id=${each._id}">
@@ -34,6 +35,7 @@ fetch(`/api/products/paginate?page=${page || 1}`)
 
 async function addToCart(pid) {
   try {
+    
     const each = {
       product_id: pid,
       quantity: 1,
@@ -47,6 +49,11 @@ async function addToCart(pid) {
 
     let response = await fetch(url, opts);
     response = await response.json();
+    Swal.fire({
+      title: "Genial",
+      text: "Producto agregado a tu carrito.",
+      icon: "success"
+    });
     console.log(response);
   } catch (error) {
     console.log(error);
