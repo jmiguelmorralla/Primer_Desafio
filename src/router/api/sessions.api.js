@@ -54,7 +54,7 @@ class SessionsRouter extends CustomRouter {
     );
     this.read(
       "/online",
-      ["USER", "ADMIN"],
+      ["PUBLIC", "USER", "ADMIN"],
       // passport.authenticate("jwt", { session: false }),
       passportCb("jwt"),
       async (req, res, next) => {

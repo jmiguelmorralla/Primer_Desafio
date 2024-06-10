@@ -29,6 +29,7 @@ fetch("/api/carts")
   .then((res) => res.json())
   .then((res) => {
     const products = res.response;
+    console.log(products)
   
     if (products) {
       document.querySelector("#productsOnCart").innerHTML = products
