@@ -9,6 +9,7 @@ import CustomRouter from "../CustomRouter.js";
 import passport from "../../middlewares/passport.mid.js";
 import isAuth from "../../middlewares/isAuth.mid.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
+import {register, login, signout, online} from "../../controllers/sessions.controller.js"
 
 class SessionsRouter extends CustomRouter {
   init() {
@@ -20,16 +21,9 @@ class SessionsRouter extends CustomRouter {
       // createHashPassword,
       // passport.authenticate("register", isAuth, { session: false }),
       passportCb("register"),
-      async (req, res, next) => {
-        try {
-          // const data = req.body;
-          // await usersManager.create(data);
-          return res.json({ statusCode: 201, message: "Registered." });
-        } catch (error) {
-          return next(error);
-        }
-      }
+      register
     );
+
     this.create(
       "/login",
       ["PUBLIC"],
@@ -37,62 +31,27 @@ class SessionsRouter extends CustomRouter {
       // isValidPassword,
       // passport.authenticate("login", isAuth, { session: false }),
       passportCb("login"),
-      async (req, res, next) => {
-        try {
-          return res
-            .cookie("token", req.user.token, { signedCookie: true })
-            // .json({
-            //   statusCode: 200,
-            //   message: "Logged in.",
-            //   // token: req.user.token,
-            // });
-            .message200("Logged in!");
-        } catch (error) {
-          return next(error);
-        }
-      }
+      login
     );
+
     this.read(
       "/online",
       ["PUBLIC", "USER", "ADMIN"],
       // passport.authenticate("jwt", { session: false }),
       passportCb("jwt"),
-      async (req, res, next) => {
-        try {
-          if (req.user.online) {
-            return res.json({
-              statusCode: 200,
-              message: "Is online!",
-              user_id: req.user._id,
-              email: req.user.email,
-              photo: req.user.photo
-            });
-          }
-          return res.json({
-            statusCode: 401,
-            message: "Bad auth!",
-          });
-        } catch (error) {
-          return next(error);
-        }
-      }
+      online
     );
-    this.create("/signout",  ["USER", "ADMIN", "PUBLIC"], passportCb("jwt"), (req, res, next) => {
-      try {
-        console.log(req.user.email)
- 
-        if (req.user.email) {
-        return res.clearCookie("token").json({ statusCode:200, message: "Signed out." })};
-        const error = new Error("Invalid credentials from signout...");
-        error.statusCode = 401;
-        throw error;
-      } catch (error) {
-        return next(error);
-      }
 
-    });
+    this.create(
+      "/signout",
+      ["USER", "ADMIN", "PUBLIC"],
+      passportCb("jwt"),
+      signout
+    );
   }
 }
+
+
 const sessionsRouter = new SessionsRouter();
 
 export default sessionsRouter.getRouter();
