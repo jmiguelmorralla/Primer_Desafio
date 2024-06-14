@@ -1,10 +1,19 @@
-import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
+// import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
 
+import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
+import {
+  createService,
+  readService,
+  readOneService,
+  updateService,
+  destroyService,
+  paginateService
+} from "../services/products.service.js";
 
 async function readOne(req, res, next) {
     try {
       const { pid } = req.params;
-      const one = await productsManager.readOne(pid);
+      const one = await readOneService(pid);
       if (one) {
         // return res.status(200).json({
         //   response: one,
@@ -24,7 +33,7 @@ async function readOne(req, res, next) {
   async function read(req, res, next) {
     try {
       const { category } = req.query;
-      const all = await productsManager.read(category);
+      const all = await readService(category);
       if (all.length !== 0) {
         // return res.status(200).json({
         //   response: all,
@@ -57,7 +66,10 @@ async function readOne(req, res, next) {
         filter.user_id = req.query.user_id;
       }
   
+      // CORREGIR PARA QUE FUNCIONE CON EL paginateService
       const all = await productsManager.paginate({ filter, opts });
+
+      
       // return res.json({
       //   statusCode: 200,
       //   response: all.docs,
@@ -86,7 +98,7 @@ async function readOne(req, res, next) {
   async function create(req, res, next) {
     try {
       const data = req.body;
-      const product = await productsManager.create(data);
+      const product = await createService(data);
       // return res.json({
       //   statusCode: 201,
       //   message: "Product id: " + product._id + " created succesfully.",
@@ -103,7 +115,7 @@ async function readOne(req, res, next) {
     try {
       const { pid } = req.params;
       const data = req.body;
-      const one = await productsManager.update(pid, data);
+      const one = await updateService(pid, data);
       // return res.json({
       //   statusCode: 200,
       //   response: one,
@@ -118,7 +130,7 @@ async function readOne(req, res, next) {
   async function destroy(req, res, next) {
     try {
       const { pid } = req.params;
-      const one = await productsManager.destroy(pid);
+      const one = await destroyService(pid);
       // return res.json({
       //   statusCode: 200,
       //   response: one,
