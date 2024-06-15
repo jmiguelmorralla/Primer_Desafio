@@ -2,54 +2,54 @@ class Service {
   constructor(manager) {
     this.manager = manager;
   }
-  async createService(data) {
+  createService = async (data) => {
     try {
       const one = await this.manager.create(data);
       return one;
     } catch (error) {
       throw error;
     }
-  }
-  async readService(role) {
+  };
+  readService = async (role) => {
     try {
       const all = await this.manager.read(role);
       return all;
     } catch (error) {
       throw error;
     }
-  }
+  };
 
   paginateService = async ({ filter, opts }) => {
     try {
-      const all = await this.model.paginate({ filter, opts });
+      const all = await this.manager.paginate({ filter, opts });
       return all;
     } catch (error) {
       throw error;
     }
   };
 
-  async readOneService(uid) {
+  readOneService = async (uid) => {
     try {
       const one = await this.manager.readOne(uid);
       return one;
     } catch (error) {
       throw error;
     }
-  }
-  async updateService(uid, data) {
+  };
+  updateService = async (uid, data) => {
     try {
       const one = await this.manager.update(uid, data);
     } catch (error) {
       throw error;
     }
-  }
-  async destroyService(uid) {
+  };
+  destroyService = async (uid) => {
     try {
       const one = await this.manager.destroy(uid);
     } catch (error) {
       throw error;
     }
-  }
+  };
 }
 
 export default Service;

@@ -1,6 +1,12 @@
 // import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 
-import { createService, readService, readOneService, updateService, destroyService } from "../services/users.service.js"
+import {
+  createService,
+  readService,
+  readOneService,
+  updateService,
+  destroyService,
+} from "../services/users.service.js";
 
 class UserController {
   async readOne(req, res, next) {
@@ -60,7 +66,7 @@ class UserController {
     try {
       const { uid } = req.params;
       const data = req.body;
-      const one = await updateService (uid, data);
+      const one = await updateService(uid, data);
       return res.json({
         statusCode: 200,
         response: one,
@@ -74,7 +80,7 @@ class UserController {
   async destroy(req, res, next) {
     try {
       const { uid } = req.params;
-      const one = await destroyService (uid);
+      const one = await destroyService(uid);
       return res.json({
         statusCode: 200,
         response: one,
