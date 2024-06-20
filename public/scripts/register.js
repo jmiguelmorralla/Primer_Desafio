@@ -17,7 +17,13 @@ document.querySelector("#register").addEventListener("click", async (event) => {
   response = await response.json();
 
   if (response.statusCode === 201) {
+    
     return location.replace("/pages/login.html");
   }
-  return alert(response.message);
+  Swal.fire({
+    title: "Bad Auth from register.",
+    timer: 4000,
+    timerProgressBar: true,
+    confirmButtonColor: "#ff3b3c",
+  });
 });

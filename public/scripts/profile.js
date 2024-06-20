@@ -1,25 +1,19 @@
-// fetch("/api/sessions")
-//   .then((res) => res.json())
-//   .then((res) => {
-//     const user = res.response;
-//     document.querySelector("#profile").innerHTML = user
-//     console.log(res);
-//   })
-//   .catch((err) => console.log(err));
 
-fetch("/api/sessions")
+fetch("/api/sessions/online")
   .then((res) => {
-    if (!res.ok) { // Verifica si la respuesta es exitosa
+    if (!res.ok) { 
+
       throw new Error(`Error HTTP: ${res.status}`);
     }
     return res.json();
   })
   .then((data) => {
+
     const profile = document.querySelector("#profile");
     if (profile) {
-      const userEmail = data.user_email || "No disponible";
+      const userEmail = data.email || "No disponible";
       const userId = data.user_id || "No disponible";
-      const userPhoto = data.user_photo || "";
+      const userPhoto = data.photo || "";
 
       const user = `
       <div class="card m-3" style="width: 18rem; background: #ffedbc">

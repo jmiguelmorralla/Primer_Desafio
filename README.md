@@ -1,11 +1,16 @@
-# Sprint_7
+# Sprint_8
 En esta entrega se pretenden implementar:
-ENDPOINTS
-POST /api/sessions/register similar al create de un usuario, implementando estrategia de passport y hasheando la contraseña
-POST /api/sessions/login para iniciar sesión, implementando estrategia de passport y comparando la contraseña
-POST /api/sessions para ver los datos del usuario online (condicionando la barra de navegación), implementando la estrategia de passport.
 
+CUSTOM ROUTER
+Aplicado en todos los enrutadores desarrollados.
+Con respuestas predeterminadas
+Con manejo de políticas de autenticación/autorización
+
+No se llegó a desarrollar los endpoints de tickets y delete carts/all por cuestiones de tiempo.
+Se me complicó el paso de sessions a passport-jwt... no está 100% funcional.
+
+Respecto a las vistas del front me faltan las alertas
 
 Se envían vistas en la PR y demás evidencia. 
 
-Se continúa en la implementación de JWT
+Continúo trabajando tratando de dejar funcionando todo lo del back para luego formatear el front.

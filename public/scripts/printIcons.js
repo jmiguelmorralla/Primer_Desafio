@@ -1,7 +1,8 @@
 async function printIcons() {
   let template = "";
 
-  let online = await fetch("/api/sessions");
+
+  let online = await fetch("/api/sessions/online");
   online = await online.json();
 
   if (online.statusCode === 200) {
@@ -20,6 +21,7 @@ async function printIcons() {
       };
       let response = await fetch("/api/sessions/signout", opts);
       response = await response.json();
+      console.log(response)
       if (response.statusCode === 200) {
         location.replace("/");
       }

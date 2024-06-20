@@ -14,8 +14,8 @@ document.querySelector("#login").addEventListener("click", async () => {
   response = await response.json();
   console.log(response);
   if (response.statusCode === 200) {
-    console.log(response.statusCode);
     return location.replace("/");
+    // localStorage.setItem("token", response.token)
   }
   return alert("Bad auth.");
 });
