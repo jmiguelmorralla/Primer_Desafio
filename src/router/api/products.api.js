@@ -13,10 +13,12 @@ class ProductsRouter extends CustomRouter {
     this.create("/", ["ADMIN"], isValidAdmin, create);
     this.update("/:pid", ["ADMIN"], update);
     this.destroy("/:pid", ["ADMIN"], destroy);
+
   }
 }
 
 const productsRouter = new ProductsRouter();
 
 export default productsRouter.getRouter()
+
 

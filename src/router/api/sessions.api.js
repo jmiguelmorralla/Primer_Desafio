@@ -9,7 +9,9 @@ import CustomRouter from "../CustomRouter.js";
 import passport from "../../middlewares/passport.mid.js";
 import isAuth from "../../middlewares/isAuth.mid.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
+
 import {register, login, signout, online} from "../../controllers/sessions.controller.js"
+
 
 class SessionsRouter extends CustomRouter {
   init() {
@@ -21,6 +23,7 @@ class SessionsRouter extends CustomRouter {
       // createHashPassword,
       // passport.authenticate("register", isAuth, { session: false }),
       passportCb("register"),
+
       register
     );
 
@@ -50,6 +53,7 @@ class SessionsRouter extends CustomRouter {
     );
   }
 }
+
 
 
 const sessionsRouter = new SessionsRouter();
