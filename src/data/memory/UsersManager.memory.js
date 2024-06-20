@@ -4,7 +4,7 @@ class UserManager {
   static #users = [];
   create(data) {
     try {
-      const user = {
+      const one = {
         id: crypto.randomBytes(12).toString("hex"),
         photo:
           data.photo ||
@@ -19,9 +19,9 @@ class UserManager {
           "Not created user. Please complete EMAIL and PASSWORD."
         );
       } else {
-        UserManager.#users.push(user);
+        UserManager.#users.push(one);
         console.log("User created succesfully.");
-        return user;
+        return one;
       }
     } catch (error) {
       throw error;
@@ -29,11 +29,11 @@ class UserManager {
   }
   read() {
     try {
-      const users = UserManager.#users;
-      if (!users) {
+      const all = UserManager.#users;
+      if (!all) {
         throw new Error("Fail at reading array");
       } else {
-        return users;
+        return all;
       }
     } catch (error) {
       throw error;
@@ -42,11 +42,11 @@ class UserManager {
 
   readOne(id) {
     try {
-      const user = UserManager.#users.find((each) => each.id === id);
-      if (!user) {
+      const one = UserManager.#users.find((each) => each.id === id);
+      if (!one) {
         throw new Error("User not found.");
       } else {
-        return user;
+        return one;
       }
     } catch (error) {
       throw error;
@@ -55,13 +55,13 @@ class UserManager {
 
   update(id, data) {
     try {
-      let user = UserManager.#users.find((each) => each.id === id);
-      console.log(user);
-      if (user) {
+      let one = UserManager.#users.find((each) => each.id === id);
+      console.log(one);
+      if (one) {
         for (let prop in data) {
-          user[prop] = data[prop];
+          one[prop] = data[prop];
         }
-        return user;
+        return one;
       } else {
         const error = new Error("Not user found.");
         error.statusCode = 404;

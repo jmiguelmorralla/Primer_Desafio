@@ -24,7 +24,7 @@ class UserManager {
           "Not created user. Please complete EMAIL and PASSWORD."
         );
       } else {
-        const user = {
+        const one = {
           id: crypto.randomBytes(12).toString("hex"),
           photo:
             data.photo ||
@@ -33,13 +33,13 @@ class UserManager {
           password: data.password,
           role: data.role || "0",
         };
-        let users = await fs.promises.readFile(this.path, "utf-8");
-        users = JSON.parse(users);
-        users.push(user);
+        let all = await fs.promises.readFile(this.path, "utf-8");
+        all = JSON.parse(all);
+        all.push(one);
         console.log("User created succesfully.");
-        users = JSON.stringify(users, null, 2);
-        await fs.promises.writeFile(this.path, users);
-        return user;
+        all = JSON.stringify(all, null, 2);
+        await fs.promises.writeFile(this.path, all);
+        return one;
       }
     } catch (error) {
       throw error;
@@ -47,13 +47,13 @@ class UserManager {
   }
   async read(rol) {
     try {
-      let users = await fs.promises.readFile(this.path, "utf-8");
-      users = JSON.parse(users);
-      rol && (users = users.filter((each) => each.role === rol));
-      if (!users) {
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      rol && (all = all.filter((each) => each.role === rol));
+      if (!all) {
         new Error("Fail at reading array.");
       } else {
-        return users;
+        return all;
       }
     } catch (error) {
       throw error;
@@ -62,15 +62,15 @@ class UserManager {
 
   async readOne(id) {
     try {
-      let users = await fs.promises.readFile(this.path, "utf-8");
-      users = JSON.parse(users);
-      let user = users.find((each) => each.id === id);
-      console.log(user);
-      if (!user) {
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      let one = all.find((each) => each.id === id);
+      console.log(one);
+      if (!one) {
         throw new Error("User not found.");
       } else {
-        console.log(user);
-        return user;
+        console.log(one);
+        return one;
       }
     } catch (error) {
       throw error;
@@ -79,16 +79,16 @@ class UserManager {
 
   async update(id, data) {
     try {
-      let users = await fs.promises.readFile(this.path, "utf-8");
-      users = JSON.parse(users);
-      let user = users.find((each) => each.id === id);
-      if (user) {
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      let one = all.find((each) => each.id === id);
+      if (one) {
         for (let prop in data) {
-          user[prop] = data[prop];
+          one[prop] = data[prop];
         }
-        users = JSON.stringify(users, null, 2);
-        await fs.promises.writeFile(this.path, users);
-        return user;
+        all = JSON.stringify(all, null, 2);
+        await fs.promises.writeFile(this.path, all);
+        return one;
       } else {
         const error = new Error("Not user found.");
         error.statusCode = 404;
@@ -101,19 +101,19 @@ class UserManager {
 
   async destroy(id) {
     try {
-      let users = await fs.promises.readFile(this.path, "utf-8");
-      users = JSON.parse(users);
-      let user = users.find((each) => each.id === id);
-      if (!user) {
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      let one = all.find((each) => each.id === id);
+      if (!one) {
         const error = new Error("User does not exist.");
         error.statusCode = 404;
         throw error;
       } else {
-        let filtered = users.filter((each) => each.id !== id);
+        let filtered = all.filter((each) => each.id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
         console.log("Deleted " + id + " user.");
-        return user;
+        return one;
       }
     } catch (error) {
       throw error;
