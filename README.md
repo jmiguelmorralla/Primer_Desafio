@@ -1,3 +1,4 @@
+
 # Sprint_8
 En esta entrega se pretenden implementar:
 
@@ -14,3 +15,4 @@ Respecto a las vistas del front me faltan las alertas
 Se envían vistas en la PR y demás evidencia. 
 
 Continúo trabajando tratando de dejar funcionando todo lo del back para luego formatear el front.
+

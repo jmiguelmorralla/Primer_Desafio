@@ -1,4 +1,4 @@
-import "dotenv/config.js";
+import environment from "./src/utils/env.util.js";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -7,6 +7,7 @@ import socketCb from "./src/router/index.socket.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import argsUtil from "./src/utils/args.util.js";
 
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
@@ -16,7 +17,7 @@ import __dirname from "./utils.js";
 import dbConnect from "./src/utils/dbConnect.util.js";
 
 const server = express();
-const port = process.env.PORT || 8080;
+const port = environment.PORT || argsUtil.p;
 const ready = async () => {
   console.log("Server ready on port: " + port + ".");
   await dbConnect();
@@ -38,7 +39,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(express.json());
 server.use(morgan("dev"));
-server.use(cookieParser(process.env.SECRET));
+server.use(cookieParser(environment.SECRET));
 server.use(
   session({
     secret: process.env.SECRET,
@@ -53,3 +54,4 @@ server.use(
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
+
