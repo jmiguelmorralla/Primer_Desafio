@@ -20,7 +20,8 @@ const server = express();
 const port = environment.PORT || argsUtil.p;
 const ready = async () => {
   console.log("Server ready on port: " + port + ".");
-  await dbConnect();
+  // await dbConnect();
+  // conexión a mongo desde factory
 };
 
 const nodeServer = createServer(server);
