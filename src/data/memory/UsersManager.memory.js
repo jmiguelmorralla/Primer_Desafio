@@ -1,11 +1,11 @@
-const crypto = require("crypto");
+import { randomBytes } from "crypto";
 
 class UserManager {
   static #users = [];
   create(data) {
     try {
       const one = {
-        id: crypto.randomBytes(12).toString("hex"),
+        id: randomBytes(12).toString("hex"),
         photo:
           data.photo ||
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
