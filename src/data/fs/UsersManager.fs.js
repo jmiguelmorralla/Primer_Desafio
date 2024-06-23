@@ -24,22 +24,14 @@ class UserManager {
           "Not created user. Please complete EMAIL and PASSWORD."
         );
       } else {
-        const one = {
-          id: crypto.randomBytes(12).toString("hex"),
-          photo:
-            data.photo ||
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
-          email: data.email,
-          password: data.password,
-          role: data.role || "0",
-        };
+        
         let all = await fs.promises.readFile(this.path, "utf-8");
         all = JSON.parse(all);
-        all.push(one);
+        all.push(data);
         console.log("User created succesfully.");
         all = JSON.stringify(all, null, 2);
         await fs.promises.writeFile(this.path, all);
-        return one;
+        return data;
       }
     } catch (error) {
       throw error;

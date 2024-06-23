@@ -4,24 +4,14 @@ class UserManager {
   static #users = [];
   create(data) {
     try {
-      const one = {
-        id: randomBytes(12).toString("hex"),
-        photo:
-          data.photo ||
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
-        email: data.email,
-        password: data.password,
-        role: data.role || "0",
-      };
-
       if (!data.email || !data.password) {
         throw new Error(
           "Not created user. Please complete EMAIL and PASSWORD."
         );
       } else {
-        UserManager.#users.push(one);
+        UserManager.#users.push(data);
         console.log("User created succesfully.");
-        return one;
+        return data;
       }
     } catch (error) {
       throw error;
