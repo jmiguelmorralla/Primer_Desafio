@@ -10,15 +10,15 @@ async function sendEmail(data) {
       secure: true,
       auth: { user: GOOGLE_EMAIL, pass: GOOGLE_PASSWORD },
     });
-    //OPCIONALMENTE verificar el transporte
+ 
     await trasport.verify();
     await trasport.sendMail({
       from: `VITONIO <${GOOGLE_EMAIL}>`,
       to: data.to,
-      subject: `USER ${data.first_name} REGISTERED!`,
-    //   corregir to upper case ... me llega undefined...
+      subject: `USER ${data.first_name.toUpperCase()} REGISTERED!`,
+
       html: `
-        <h1>Bienvenido a Vitonio</h1>
+        <h1>Bienvenido a Vitonio Juguetería</h1>
         <h4>Por favor verifica tu cuenta para completar tu registro.</h4>
         <p>Código de verificación: ${data.code}</p>
       `,

@@ -20,7 +20,7 @@ class IndexRouter extends CustomRouter {
         this.create("/api/nodemailer", ["PUBLIC"], async(req,res,next)=> {
             try {
               const { email, name }= req.body
-              await sendEmail({ to: email, name })
+              await sendEmail({ to: email, first_name: name })
               return res.message200("EMAIL SENT")
             } catch (error) {
               next(error)
