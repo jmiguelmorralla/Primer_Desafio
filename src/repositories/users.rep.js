@@ -47,6 +47,16 @@ class UsersRepository {
         throw error;
       }
     };
+
+    readByEmailRepository = async (email) => {
+      try {
+        const one = await this.model.readByEmail(email);
+        return one;
+      } catch (error) {
+        throw error;
+      }
+    };
+
     destroyRepository = async (uid) => {
       try {
         const one = await this.model.destroy(uid);

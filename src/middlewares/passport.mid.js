@@ -5,6 +5,9 @@ import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
 
+import sendEmail from "../utils/mailing.util.js";
+import UsersDTO from "../dto/users.dto.js";
+
 
 passport.use(
   "register",
@@ -25,7 +28,12 @@ passport.use(
         }
         const hashPassword = createHash(password);
         req.body.password = hashPassword;
-        const user = await usersManager.create(req.body);
+        const data = new UsersDTO(req.body);
+        const user = await usersManager.create(data);
+        await sendEmail({ to: email, first_name: user.first_name, code: user.verifyCode})
+        console.log(user)
+
+
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -45,8 +53,9 @@ passport.use(
           error.statusCode = 401;
           return done(error);
         }
-        const verify = verifyHash(password, one.password);
-        if (verify) {
+        const verifyPass = verifyHash(password, one.password);
+        const verifyAccount = one.verify
+        if (verifyPass || verifyAccount) {
           // req.session.email = email;
           // req.session.online = true;
           // req.session.role = one.role;

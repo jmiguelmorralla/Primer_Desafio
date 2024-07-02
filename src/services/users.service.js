@@ -12,6 +12,7 @@ export const {
   createService,
   readService,
   readOneService,
+  readByEmailService,
   updateService,
   destroyService,
 } = usersService;

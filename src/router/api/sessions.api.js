@@ -10,7 +10,7 @@ import passport from "../../middlewares/passport.mid.js";
 import isAuth from "../../middlewares/isAuth.mid.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
 
-import {register, login, signout, online} from "../../controllers/sessions.controller.js"
+import {register, login, signout, online, verifyCode} from "../../controllers/sessions.controller.js"
 
 
 class SessionsRouter extends CustomRouter {
@@ -36,6 +36,16 @@ class SessionsRouter extends CustomRouter {
       passportCb("login"),
       login
     );
+
+    this.create(
+      "/verify",
+      ["PUBLIC"],
+      // isValidUser,
+      // isValidPassword,
+      // passport.authenticate("login", isAuth, { session: false }),
+      verifyCode
+    );
+
 
     this.read(
       "/online",

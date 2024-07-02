@@ -1,5 +1,6 @@
 import { createTransport } from "nodemailer";
 import environment from "./env.util.js";
+
 const { GOOGLE_EMAIL, GOOGLE_PASSWORD } = environment;
 
 async function sendEmail(data) {
@@ -23,6 +24,8 @@ async function sendEmail(data) {
         <p>Código de verificación: ${data.code}</p>
       `,
     });
+    console.log(data)
+
   } catch (error) {
     throw error;
   }

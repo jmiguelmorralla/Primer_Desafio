@@ -64,7 +64,21 @@ class SessionsController {
   }
 }
 
+const verifyCode = async (req, res, next) => {
+  const { email, code } = req.body;
+  const one = await readByEmailService(email);
+  const verify = code === one.verifyCode;
+  console.log(one);
+  console.log(code);
+  if (verify) {
+    await updateService(one._id, { verify });
+    return res.message200("Verified User!");
+  } else {
+    return res.error400("Invalid credentials!");
+  }
+};
+
 const sessionsController = new SessionsController();
 const { register, login, signout, online } = sessionsController;
 
-export { register, login, signout, online };
+export { register, login, signout, online, verifyCode };

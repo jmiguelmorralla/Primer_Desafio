@@ -4,6 +4,7 @@ document.querySelector("#register").addEventListener("click", async (event) => {
   const data = {
     email: document.querySelector("#email").value,
     password: document.querySelector("#password").value,
+    first_name: document.querySelector("#first_name").value,
     photo: document.querySelector("#photo").value,
   };
   const opts = {
@@ -18,7 +19,7 @@ document.querySelector("#register").addEventListener("click", async (event) => {
 
   if (response.statusCode === 201) {
     
-    return location.replace("/pages/login.html");
+    return location.replace("/pages/verified.html");
   }
   Swal.fire({
     title: "Bad Auth from register.",
