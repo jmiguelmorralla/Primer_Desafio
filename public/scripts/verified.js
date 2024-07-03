@@ -1,7 +1,7 @@
 document.querySelector("#verify").addEventListener("click", async () => {
     const data = {
       email: document.querySelector("#email").value,
-      password: document.querySelector("#code").value,
+      code: document.querySelector("#code").value,
     };
     const opts = {
       method: "POST",

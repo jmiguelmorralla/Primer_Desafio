@@ -48,7 +48,8 @@ class Service {
 
   updateService = async (uid, data) => {
     try {
-      const one = await this.repository.update(uid, data);
+      const one = await this.repository.updateRepository(uid, data);
+      return one;
     } catch (error) {
       throw error;
     }

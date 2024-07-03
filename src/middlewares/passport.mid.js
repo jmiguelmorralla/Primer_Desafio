@@ -1,12 +1,14 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
-import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
+// import usersManager from "../data/mongo/managers/UsersManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
 
 import sendEmail from "../utils/mailing.util.js";
 import UsersDTO from "../dto/users.dto.js";
+
+import usersRepository from "../repositories/users.rep.js";
 
 
 passport.use(
@@ -20,7 +22,7 @@ passport.use(
           error.statusCode = 401;
           return done(null, null, error);
         }
-        const one = await usersManager.readByEmail(email);
+        const one = await usersRepository.readByEmailRepository(email);
         if (one) {
           const error = new Error("Bad auth from register!");
           error.statusCode = 401;
@@ -29,7 +31,7 @@ passport.use(
         const hashPassword = createHash(password);
         req.body.password = hashPassword;
         const data = new UsersDTO(req.body);
-        const user = await usersManager.create(data);
+        const user = await usersRepository.createRepository(data);
         await sendEmail({ to: email, first_name: user.first_name, code: user.verifyCode})
         console.log(user)
 
@@ -47,7 +49,7 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        const one = await usersManager.readByEmail(email);
+        const one = await usersRepository.readByEmailRepository(email);
         if (!one) {
           const error = new Error("Bad auth from login!");
           error.statusCode = 401;
