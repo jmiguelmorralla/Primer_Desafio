@@ -12,7 +12,7 @@ document.querySelector("#verify").addEventListener("click", async () => {
     let response = await fetch("/api/sessions/verify", opts);
   
     response = await response.json();
-    console.log(data);
+    console.log(response);
     if (response.statusCode === 200) {
       return location.replace("/");
 

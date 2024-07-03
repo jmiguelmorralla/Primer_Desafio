@@ -17,7 +17,7 @@ class SessionsRouter extends CustomRouter {
   init() {
     this.create(
       "/register",
-      ["PUBLIC"],
+      ["PUBLIC", "USER", "ADMIN"],
       // isValidData,
       // isValidEmail,
       // createHashPassword,
@@ -29,7 +29,7 @@ class SessionsRouter extends CustomRouter {
 
     this.create(
       "/login",
-      ["PUBLIC"],
+      ["PUBLIC", "USER", "ADMIN"],
       // isValidUser,
       // isValidPassword,
       // passport.authenticate("login", isAuth, { session: false }),
@@ -39,7 +39,7 @@ class SessionsRouter extends CustomRouter {
 
     this.create(
       "/verify",
-      ["PUBLIC"],
+      ["PUBLIC", "USER", "ADMIN"],
       // isValidUser,
       // isValidPassword,
       // passport.authenticate("login", isAuth, { session: false }),

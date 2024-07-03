@@ -1,3 +1,5 @@
+import { readByEmailService, updateService } from "../services/users.service.js"
+
 class SessionsController {
   async register(req, res, next) {
     try {
@@ -81,4 +83,4 @@ const verifyCode = async (req, res, next) => {
 const sessionsController = new SessionsController();
 const { register, login, signout, online } = sessionsController;
 
-export { register, login, signout, online, verifyCode };
+export { register, login, signout, online, verifyCode, readByEmailService };
