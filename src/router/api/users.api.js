@@ -8,10 +8,10 @@ import { create, read, readOne, update, destroy} from "../../controllers/users.c
 
 class UsersRouter extends CustomRouter {
   init() {
-    this.read("/:uid", ["ADMIN"], readOne);
-    this.read("/", ["ADMIN"], read);
+    this.read("/:uid", ["USER", "ADMIN"], readOne);
+    this.read("/", ["USER", "ADMIN"], read);
     this.create("/", ["USER", "ADMIN"], create);
-    this.update("/:uid", ["ADMIN"], update);
+    this.update("/:uid", ["USER", "ADMIN"], update);
     this.destroy("/:uid", ["ADMIN"], destroy);
 
   }

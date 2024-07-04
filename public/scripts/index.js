@@ -13,7 +13,7 @@
         <a class="navbar-brand" href="/pages/details.html?_id=${each._id}">
           <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each._id}">
           <div class="card-body">
-            <h5 class="card-title">${each.title}</h5>
+            <h5 class="card-title">${each.title} - $${each.price}</h5>
           </div>
         </a>
         <label for="quantity-${each._id}" class="form-label"><strong>Cantidad:</strong></label>
@@ -30,7 +30,7 @@
         <a class="navbar-brand" href="/pages/details.html?_id=${each._id}">
           <img style="height: 12rem" src="${each.photo}" class="card-img-top" alt="${each._id}">
           <div class="card-body">
-            <h5 class="card-title">${each.title}</h5>
+            <h5 class="card-title">${each.title} - $${each.price}</h5>
           </div>
         </a>
         <a class="btn btn-warning" href="/pages/login.html">Inicia sesión!</a>

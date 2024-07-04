@@ -1,18 +1,28 @@
 
-# Sprint_8
+# Challenge_3
 En esta entrega se pretenden implementar:
 
-CUSTOM ROUTER
-Aplicado en todos los enrutadores desarrollados.
-Con respuestas predeterminadas
-Con manejo de políticas de autenticación/autorización
+Gestores de “productos”, de “usuarios” y de “carritos” para guardar los datos en la memoria (memory) y en archivos (files) y en la nube (mongo) con el CRUD correspondiente de cada recurso.
+App 100% en inglés para definir una API REST
+Manejar errores de todas las rutas con errorHandler y rutas que no existen con pathhandler
+Manejar el registro de las solicitudes con morgan
+Definir cuatro usuarios y cuarenta productos
+Incluir conexión de mongo
+Definir las capas de enrutamiento, control, servicios, repositorios (dao y dto) y data
 
-No se llegó a desarrollar los endpoints de tickets y delete carts/all por cuestiones de tiempo.
-Se me complicó el paso de sessions a passport-jwt... no está 100% funcional.
+PASSPORT y JWT
+passport local con callback personalizable sólo para register y login
+la autenticación y autorización se realizará exclusivamente con jwt dentro de las políticas del CustomRouter
 
-Respecto a las vistas del front me faltan las alertas
+ENTORNOS
+Manejar con argumentos los entornos dev, prod y test. Los diferentes entornos manejan al menos diferentes variables PORT y MONGO_LINK
+Manejar la persistencia según el entorno: dev y prod se conectan con mongo mientras que test con fs
 
-Se envían vistas en la PR y demás evidencia. 
+VISTAS
+Todas las vistas se desarrollarán con handlebars, js o react (lo que prefieran)
+Velar por el correcto consumo y renderizado por parte del cliente y probar la correcta visualización según los diferentes roles.
 
-Continúo trabajando tratando de dejar funcionando todo lo del back para luego formatear el front.
-
+VERIFICACION
+El registro debe enviar un email con una plantilla y un código de verificación
+Agregar toda la seguridad necesaria para que ahora un usuario registrado NO VERIFICADO no pueda iniciar sesión ni acceder a las funcionalidades de la app.
+Agregar un nuevo formulario a las vistas para poder ingresar el código y verificar correctamente el registro de un usuario.
